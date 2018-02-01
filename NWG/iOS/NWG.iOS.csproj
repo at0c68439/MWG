@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Custom Renderer\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -119,6 +120,21 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Custom Renderer\BorderLessEntryRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NWG_Spalsh_bg.png" />
+    <BundleResource Include="Resources\Back.png" />
+    <BundleResource Include="Resources\Camera.png" />
+    <BundleResource Include="Resources\Collapse.png" />
+    <BundleResource Include="Resources\Edit.png" />
+    <BundleResource Include="Resources\Expand.png" />
+    <BundleResource Include="Resources\Geolocation.png" />
+    <BundleResource Include="Resources\Logout.png" />
+    <BundleResource Include="Resources\loginbg.png" />
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\pwd.png" />
+    <BundleResource Include="Resources\username.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets')" />

@@ -1,5 +1,20 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="NWG.View.Login">
-	<ContentPage.Content>
-	</ContentPage.Content>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:NWG;assembly=NWG" x:Class="NWG.View.Login">
+	<AbsoluteLayout>
+        <Image Source="loginbg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/> 
+        <Image Source="logo" WidthRequest="30" HeightRequest="30" AbsoluteLayout.LayoutBounds=".5,.25,.3,.1" AbsoluteLayout.LayoutFlags="All" ></Image>
+
+
+        <Image Source="username" WidthRequest="10" HeightRequest="10" AbsoluteLayout.LayoutBounds=".1,.4,.08,.1" AbsoluteLayout.LayoutFlags="All"></Image>
+        
+        <local:MyEntry Placeholder="Username" TextColor="Gray" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds=".8,.4,.7,.1" />
+        <BoxView AbsoluteLayout.LayoutBounds=".5,.47,.8,.002" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#537bb2"/>
+
+        <Image Source="pwd" WidthRequest="10" HeightRequest="10" AbsoluteLayout.LayoutBounds=".1,.55,.08,.1" AbsoluteLayout.LayoutFlags="All"/>
+        
+        <local:MyEntry Placeholder="Password" IsPassword="true" TextColor="Gray" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds=".8,.55,.7,.1" />
+       
+        <Button AbsoluteLayout.LayoutBounds=".5,.7,.85,.07" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#375b8e" Text="Sign up" TextColor="White"/>
+
+    </AbsoluteLayout>
 </ContentPage>
