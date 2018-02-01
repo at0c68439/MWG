@@ -9,7 +9,10 @@ namespace NWG
         {
             InitializeComponent();
 
-            MainPage = new Login();
+            MainPage = new NavigationPage(new Login());
+            ((NavigationPage)MainPage).BarBackgroundColor = Color.Blue;
+            ((NavigationPage)MainPage).BarTextColor = Color.White;
+
         }
 
         protected override void OnStart()
