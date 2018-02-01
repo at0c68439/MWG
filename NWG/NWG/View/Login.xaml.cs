@@ -15,5 +15,9 @@ namespace NWG.View
             NavigationPage.SetBackButtonTitle(this, "");
 
         }
+        protected void btn_loginclicked(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

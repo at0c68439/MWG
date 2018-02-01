@@ -125,6 +125,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="DependencyService\" />
+    <Folder Include="Custom Renderer\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -138,6 +139,21 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="DependencyService\FileHelper.cs" />
+    <Compile Include="Custom Renderer\BorderLessEntryRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\NWG_Spalsh_bg.png" />
+    <BundleResource Include="Resources\Back.png" />
+    <BundleResource Include="Resources\Camera.png" />
+    <BundleResource Include="Resources\Collapse.png" />
+    <BundleResource Include="Resources\Edit.png" />
+    <BundleResource Include="Resources\Expand.png" />
+    <BundleResource Include="Resources\Geolocation.png" />
+    <BundleResource Include="Resources\Logout.png" />
+    <BundleResource Include="Resources\loginbg.png" />
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\pwd.png" />
+    <BundleResource Include="Resources\username.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\NWG_Spalsh_bg.png" />

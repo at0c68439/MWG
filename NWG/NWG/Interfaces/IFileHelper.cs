@@ -1,10 +1,8 @@
 ﻿using System;
 namespace NWG.Interfaces
 {
-    public class IFileHelper
+    public interface IFileHelper
     {
-        public IFileHelper()
-        {
-        }
+        string GetLocalFilePath(string filename);
     }
 }
