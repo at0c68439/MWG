@@ -1,6 +1,6 @@
-﻿<Properties StartupConfiguration="{2D1C1A7A-96D6-48F6-8430-315672C4F06C}|Default">
+﻿<Properties StartupConfiguration="{491B4F65-B5E3-4ACD-B51F-F8926EFC9328}|Default">
   <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
