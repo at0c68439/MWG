@@ -53,6 +53,8 @@
     <Compile Include="View\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MyNavigationPage.cs" />
+    <Compile Include="Model\EventGroupModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

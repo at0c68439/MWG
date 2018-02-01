@@ -4,16 +4,14 @@ using Xamarin.Forms;
 
 namespace NWG.View
 {
-    public class MyNavigationPage : ContentPage
+    public class MyNavigationPage : NavigationPage
     {
         public MyNavigationPage()
         {
-            Content = new StackLayout
-            {
-                Children = {
-                    new Label { Text = "Hello ContentPage" }
-                }
-            };
+            BarBackgroundColor = Color.Maroon;
+            BarTextColor = Color.White;
+            //Icon = "menu.png";
+
         }
     }
 }

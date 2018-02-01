@@ -10,6 +10,7 @@ namespace NWG.View
         public Dashboard()
         {
             InitializeComponent();
+            NavigationPage.SetBackButtonTitle(this, "");
         }
     }
 }
