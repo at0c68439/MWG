@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="NWG.View.Dashboard"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NWG.View.Dashboard"
     Title="Dashboard">
 	<ContentPage.Content >
                 <ListView x:Name ="eventListView" 
-                  BackgroundColor="#800000" 
                   ItemsSource="{Binding EventGroupProperty}"
                   IsGroupingEnabled="true"  
                   GroupDisplayBinding="{Binding MonthName}"
@@ -22,12 +23,12 @@
                             <StackLayout x:Name="EventDetailLayout" 
                                          Margin="10,10,10,10"
                                          BackgroundColor="White">
-                            <Label Text="{Binding Title}"
+                            <Label Text="{Binding AboutEvent}"
                                    FontAttributes="Bold"
                                    TextColor="Black"
                                    FontSize="18"/>
                             <Label  x:Name="descriptionLable"
-                                    Text="{Binding SortedDescription}"
+                                    Text="{Binding EventTopic}"
                                    TextColor="Black"
                                    FontSize="18"/>
                             </StackLayout>
