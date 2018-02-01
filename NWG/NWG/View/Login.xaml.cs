@@ -13,7 +13,10 @@ namespace NWG.View
         }
         protected void btn_loginclicked(object sender, EventArgs e)
         {
-            
+            if ((username.Text == "dmouser1" && password.Text == "dmouser@123") || (username.Text == "nwgc" && password.Text == "nwg@123"))
+            {
+                
+            }
         }
     }
 }
