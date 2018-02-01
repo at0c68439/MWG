@@ -11,5 +11,9 @@ namespace NWG.View
         {
             InitializeComponent();
         }
+        protected void btn_loginclicked(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
