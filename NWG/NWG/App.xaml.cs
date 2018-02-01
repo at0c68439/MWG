@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using NWG.View;
+using Xamarin.Forms;
 
 namespace NWG
 {
@@ -8,7 +9,7 @@ namespace NWG
         {
             InitializeComponent();
 
-            MainPage = new NWGPage();
+            MainPage = new Login();
         }
 
         protected override void OnStart()
