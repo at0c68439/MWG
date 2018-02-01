@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="NWG.ExcavationInfoPage">
+	<ContentPage.Content>
+        <StackLayout x:Name="RootLayout"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Orientation="Vertical"
+            BackgroundColor="White">
+            <ScrollView Orientation="Vertical"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                BackgroundColor="#F3F3F3">
+                <StackLayout x:Name="MainLayout"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Orientation="Vertical"
+                    Margin="5,5,5,0">
+                    <StackLayout x:Name="LocationLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="LocationLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Location"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="LocationEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+                    
+                    <StackLayout x:Name="ColourLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="ColourLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Colour"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="ColourEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                    <StackLayout x:Name="LengthLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="LengthLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Length (m)"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="LengthEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                    <StackLayout x:Name="WidthLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="WidthLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Width (m)"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="WidthEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                    <StackLayout x:Name="DepthLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="DepthLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Depth (m)"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="DepthEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                    <StackLayout x:Name="StatusLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Vertical">
+                        
+                        <Label x:Name="StatusLabel"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Text="Status"
+                            TextColor="#185FA5"/>
+                        
+                        <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Margin="0,0,0,0">
+                            <Label
+                                x:Name="Completelabel"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                Text="Complete"
+                                TextColor="#9F9F9F"/>
+                            <Label
+                                x:Name="TemproraryLabel"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalTextAlignment="Center"
+                                Text="Temprorary Backfill"
+                                TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <Label
+                                x:Name="Awaitinglabel"
+                                HorizontalOptions="StartAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                Text="Awaiting Backfill"
+                                TextColor="#9F9F9F"/>
+                            <Label
+                                x:Name="BackfilledLabel"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalTextAlignment="Center"
+                                Text="Backfilled"
+                                TextColor="#9F9F9F"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                    <StackLayout x:Name="SurfaceLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="SurfaceLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Surface"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="SurfaceEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                    <StackLayout x:Name="PublicLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="PublicLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Public/Private"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="PublicEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                    <StackLayout x:Name="SiteLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="SiteLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Is site cleared"
+                            TextColor="#185FA5"/>
+                        <Switch x:Name="SiteButton"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                     <StackLayout x:Name="SpoilLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="SpoilLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Is spoil removed"
+                            TextColor="#185FA5"/>
+                        <Switch x:Name="SpoilButton"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                    <StackLayout x:Name="CommentsLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="CommentsLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Comments"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="CommentsEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                     <StackLayout x:Name="MaterialLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="MaterialLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Material description"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="MaterialEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                    <StackLayout x:Name="CaptureImageLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="ImageLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Capture Image"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="ImageEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+
+
+                    <StackLayout x:Name="GeoLocationLayout"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="GeoLocationLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Geo Location"
+                            TextColor="#185FA5"/>
+                        <Label
+                            x:Name="GeoLocationEntry"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#185FA5"/>
+                    </StackLayout>
+                    <StackLayout HeightRequest="1"             
+                        BackgroundColor="Gray"
+                        Opacity="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Vertical"/>
+               </StackLayout>
+            </ScrollView>
+
+            <StackLayout Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Margin="20,10,20,10">
+                <Button Text="Cancel"
+                    x:Name="CancelButton"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
+                    TextColor="#57C091"
+                    BackgroundColor="White"
+                    BorderColor="#57C091"
+                    WidthRequest="150"/>
+                <Button Text="Submit"
+                    x:Name="SubmitButton"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    TextColor="White"
+                    BackgroundColor="#185FA5"
+                    BorderColor="White"
+                    WidthRequest="150"/>
+            </StackLayout>
+      </StackLayout>
+	</ContentPage.Content>
+</ContentPage>
