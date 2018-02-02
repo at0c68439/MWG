@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using NWG.Model;
 using Xamarin.Forms;
 
@@ -9,52 +7,50 @@ namespace NWG.View
 {
     public partial class Dashboard : ContentPage
     {
+
+        private ObservableCollection<FoodGroup> _allGroups;
+        private ObservableCollection<FoodGroup> _expandedGroups;
+
         public Dashboard()
         {
-            SetGroupList();
             InitializeComponent();
             NavigationPage.SetBackButtonTitle(this, "");
-
-
+            _allGroups = FoodGroup.All;
+            UpdateListContent();
         }
 
-        public ObservableCollection<EventGroupModel<string, EventModel>> _eventGroupProperty;
-        public ObservableCollection<EventGroupModel<string, EventModel>> EventGroupProperty
+        private void HeaderTapped(object sender, EventArgs args)
         {
-            get
+            int selectedIndex = _expandedGroups.IndexOf(
+                ((FoodGroup)((Button)sender).CommandParameter));
+            _allGroups[selectedIndex].Expanded = !_allGroups[selectedIndex].Expanded;
+            UpdateListContent();
+        }
+
+        private void AddButtonTapped(object sender, EventArgs args)
+        {
+            Navigation.PushAsync(new ExcavationInfoPage());
+        }
+
+        private void UpdateListContent()
+        {
+            _expandedGroups = new ObservableCollection<FoodGroup>();
+            foreach (FoodGroup group in _allGroups)
             {
-                return _eventGroupProperty;
+                //Create new FoodGroups so we do not alter original list
+                FoodGroup newGroup = new FoodGroup(group.Title, group.Expanded);
+                //Add the count of food items for Lits Header Titles to use
+                newGroup.FoodCount = group.Count;
+                if (group.Expanded)
+                {
+                    foreach (Food food in group)
+                    {
+                        newGroup.Add(food);
+                    }
+                }
+                _expandedGroups.Add(newGroup);
             }
-
-            set
-            {
-                _eventGroupProperty = value;
-            }
-        }
-
-        void SetGroupList()
-        {
-            //   var result = _eventService.GetEventsAsync(); ;
-            var eventList = getGroupList();
-
-            var groupedData = eventList.GroupBy(p => p.Month)
-                                       .Select(p => new EventGroupModel<string, EventModel>(p))
-            .ToList();
-            EventGroupProperty = new ObservableCollection<EventGroupModel<string, EventModel>>(groupedData);
-
-        }
-
-        List<EventModel> getGroupList()
-        {
-
-            var resultList = new List<EventModel> {
-                new EventModel{ AboutEvent = "it is good", DateName = "25", EventTopic = "education",Month = "01"},
-                new EventModel{ AboutEvent = "it is very good", DateName = "26", EventTopic = "cyber",Month = "02"},
-                new EventModel{ AboutEvent = "it is super good", DateName = "27", EventTopic = "cyber",Month = "01"},
-                new EventModel{ AboutEvent = "it is very very good", DateName = "28", EventTopic = "education",Month = "02"}
-
-            };
-            return resultList;
+            GroupedView.ItemsSource = _expandedGroups;
         }
     }
 }

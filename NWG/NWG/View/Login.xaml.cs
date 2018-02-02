@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Xamarin.Forms;
 
@@ -11,12 +10,13 @@ namespace NWG.View
         {
             InitializeComponent();
 
-            Navigation.PushAsync(new Dashboard());
+
             NavigationPage.SetBackButtonTitle(this, "");
 
         }
         protected void btn_loginclicked(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new Dashboard());
             if ((username.Text == "dmouser1" && password.Text == "dmouser@123") || (username.Text == "nwgc" && password.Text == "nwg@123"))
             {
                 
