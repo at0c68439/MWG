@@ -26,14 +26,19 @@
                             x:Name="LocationLabel"
                             HorizontalOptions="StartAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            Text="Location"
+                            Text="Location" 
                             TextColor="#185FA5"/>
-                        <Label
-                            x:Name="LocationEntry"
+
+                        <Label  x:Name="LocationEntry"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center"
-                            TextColor="#185FA5"/>
+                            HorizontalTextAlignment="Center" Text="Location"
+                            TextColor="#185FA5">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLocationTapped"/>
+                        </Label.GestureRecognizers>
+                        </Label>
+
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
