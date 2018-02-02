@@ -75,6 +75,7 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Model\UserAccount.cs" />
     <Compile Include="Helpers\UserManager.cs" />
+    <Compile Include="Helpers\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLite-net">
