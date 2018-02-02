@@ -6,7 +6,7 @@ namespace NWG.Helpers
 {
     public static class MetaDataForDropDown
     {
-        public static List<string> LocationData()
+        public static List<string> LocationList()
         {
             List<string> locationList = new List<string>();
             locationList.Add("BACK YARD/GARDEN");
@@ -29,6 +29,62 @@ namespace NWG.Helpers
 
             return locationList;
         }
+
+        public static List<string> ColorList()
+        {
+            List<string> locationList = new List<string>();
+            locationList.Add("BLACK");
+            locationList.Add("BROWN");
+            locationList.Add("GREEN");
+            locationList.Add("N/A");
+            locationList.Add("OTHER");
+            locationList.Add("RED");
+            locationList.Add("YELLOW");
+           
+            return locationList;
+        }
+
+        public static List<string> SurfaceList()
+        {
+            List<string> locationList = new List<string>();
+            locationList.Add("ANTI-SKID");
+            locationList.Add("BITMAC");
+            locationList.Add("BLOCK PAVING");
+            locationList.Add("CONCRETE");
+            locationList.Add("CRAZY PAVING");
+            locationList.Add("DBM");
+          
+            return locationList;
+        }
+
+        public static List<string> MaterialList()
+        {
+            List<string> locationList = new List<string>();
+            locationList.Add("ANTI-SKID");
+            locationList.Add("BITMAC");
+            locationList.Add("BLOCK PAVING");
+            locationList.Add("CONCRETE");
+            locationList.Add("CRAZY PAVING");
+            locationList.Add("DBM");
+            locationList.Add("DISABLED RAMP");
+            locationList.Add("HRA");
+            locationList.Add("OTHER");
+            locationList.Add("FLAGS");
+            locationList.Add("OTHER");
+            locationList.Add("GARDEN");
+            locationList.Add("GRASS");
+            locationList.Add("REINF CONCRETE");
+            locationList.Add("SLABS");
+            locationList.Add("SMA");
+            locationList.Add("TARMAC");
+            locationList.Add("TRAFFIC SENSORS");
+            locationList.Add("UNMADE");
+            locationList.Add("VERGE");
+            locationList.Add("GRAVEL");
+
+            return locationList;
+        }
+
     }
 }
 

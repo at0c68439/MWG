@@ -30,9 +30,9 @@
                             TextColor="#185FA5"/>
 
                         <Label  x:Name="LocationEntry"
-                            HorizontalOptions="FillAndExpand"
+                            HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center" Text="Location"
+                            HorizontalTextAlignment="Center" Text="Choose Location"
                             TextColor="#185FA5">
                         <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnLocationTapped"/>
@@ -58,12 +58,15 @@
                             VerticalOptions="CenterAndExpand"
                             Text="Colour"
                             TextColor="#185FA5"/>
-                        <Label
-                            x:Name="ColourEntry"
-                            HorizontalOptions="FillAndExpand"
+                       <Label  x:Name="ColourSelect"
+                            HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center"
-                            TextColor="#185FA5"/>
+                            HorizontalTextAlignment="Center" Text="Choose Color"
+                            TextColor="#185FA5">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnColourChooseTapped"/>
+                        </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -83,12 +86,11 @@
                             VerticalOptions="CenterAndExpand"
                             Text="Length (m)"
                             TextColor="#185FA5"/>
-                        <Label
+                        <Entry
                             x:Name="LengthEntry"
-                            HorizontalOptions="FillAndExpand"
+                            HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center"
-                            TextColor="#185FA5"/>
+                            TextColor="#185FA5" WidthRequest="150"/>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -108,12 +110,11 @@
                             VerticalOptions="CenterAndExpand"
                             Text="Width (m)"
                             TextColor="#185FA5"/>
-                        <Label
+                        <Entry
                             x:Name="WidthEntry"
-                            HorizontalOptions="FillAndExpand"
+                            HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center"
-                            TextColor="#185FA5"/>
+                            TextColor="#185FA5" WidthRequest="150"/>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -133,12 +134,11 @@
                             VerticalOptions="CenterAndExpand"
                             Text="Depth (m)"
                             TextColor="#185FA5"/>
-                        <Label
+                      <Entry
                             x:Name="DepthEntry"
-                            HorizontalOptions="FillAndExpand"
+                            HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center"
-                            TextColor="#185FA5"/>
+                            TextColor="#185FA5" WidthRequest="150"/>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -205,7 +205,6 @@
                     <StackLayout x:Name="SurfaceLayout"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Start"
-                        Padding="5,5,5,5"
                         Orientation="Horizontal">
                         <Label
                             x:Name="SurfaceLabel"
@@ -213,6 +212,16 @@
                             VerticalOptions="CenterAndExpand"
                             Text="Surface"
                             TextColor="#185FA5"/>
+                        <Label  x:Name="SurfaceSelect"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center" Text="Choose Surface"
+                            TextColor="#185FA5">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMaterialSelectTapped"/>
+                        </Label.GestureRecognizers>
+                        </Label>
+                        
                         <Label
                             x:Name="SurfaceEntry"
                             HorizontalOptions="FillAndExpand"
@@ -332,12 +341,16 @@
                             VerticalOptions="CenterAndExpand"
                             Text="Material description"
                             TextColor="#185FA5"/>
-                        <Label
-                            x:Name="MaterialEntry"
-                            HorizontalOptions="FillAndExpand"
+
+                        <Label  x:Name="MaterialSelect"
+                            HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center"
-                            TextColor="#185FA5"/>
+                            HorizontalTextAlignment="Center" Text="Choose Material"
+                            TextColor="#185FA5">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMaterialSelectTapped"/>
+                        </Label.GestureRecognizers>
+                        </Label>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -416,6 +429,8 @@
                     TextColor="White"
                     BackgroundColor="#185FA5"
                     BorderColor="White"
+                    BorderWidth="1"
+                    BorderRadius="0"
                     WidthRequest="150"/>
             </StackLayout>
       </StackLayout>
