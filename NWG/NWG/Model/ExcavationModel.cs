@@ -7,8 +7,15 @@
 
 namespace NWG.Model
 {
-    public class Food
+    public class ExcavationModel
     {
         public string Name { get; set; }
+        public bool IsReviewed { get; set; } = true;
+
+        public string StatusIcon
+        {
+            get { return IsReviewed ? "Green.png" : "Red.png"; }
+        }
+
     }
 }

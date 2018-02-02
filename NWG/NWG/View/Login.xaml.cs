@@ -10,7 +10,7 @@ namespace NWG.View
         {
             InitializeComponent();
 
-
+            NavigationPage.SetHasNavigationBar(this,false);
             NavigationPage.SetBackButtonTitle(this, "");
 
         }
