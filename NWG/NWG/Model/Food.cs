@@ -10,5 +10,12 @@ namespace NWG.Model
     public class Food
     {
         public string Name { get; set; }
+        public bool IsReviewed { get; set; } = true;
+
+        public string StatusIcon
+        {
+            get { return IsReviewed ? "Green.png" : "Red.png"; }
+        }
+
     }
 }

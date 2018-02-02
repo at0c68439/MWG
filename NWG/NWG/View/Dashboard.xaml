@@ -20,7 +20,7 @@
                             Margin="15,0,15,0">
            <StackLayout Orientation="Horizontal"
                            Spacing="0,0,0,0"
-                            Padding="20,10,0,10"    
+                            Padding="20,10,0,10"  
                             BackgroundColor="#FFFFFF"
                             VerticalOptions="CenterAndExpand"    
                             HorizontalOptions="FillAndExpand">
@@ -36,7 +36,7 @@
                      Margin="5,0,0,0"               
                      HeightRequest="10" 
                      WidthRequest="10"              
-                     Source="Green.png"/>  
+                     Source="{Binding StatusIcon}"/>  
 
             </StackLayout>
             </StackLayout>            
@@ -61,34 +61,39 @@
                      Font="Bold"             
                      HorizontalOptions="Start"
                      VerticalOptions="Center"/>
-               <Image x:Name="ExcavationCount1" 
+               <Image x:Name="ExcavationCount1WithStatus" 
                      VerticalOptions="Center"
                      HeightRequest="10" 
-                     WidthRequest="10"                 
-                     Source="Red.png"/>
-              <Image x:Name="ExcavationCount2" 
+                     WidthRequest="10"    
+                     IsVisible="{Binding StatusCount1IconVisibility}"
+                     Source="{Binding StatusCount1StatusIcon}"/>
+              <Image x:Name="ExcavationCount2WithStatus" 
                      VerticalOptions="Center"
                      HeightRequest="10" 
-                     WidthRequest="10"               
-                     Source="Green.png"/>           
+                     WidthRequest="10"
+                     IsVisible="{Binding StatusCount2IconVisibility}"               
+                     HorizontalOptions="StartAndExpand"
+                     Source="{Binding StatusCount2StatusIcon}"/>           
               <Button x:Name = "AddButton"
                       Image="Group1.png"
                       Margin="0,0,8,0" 
                       HeightRequest="30" 
                       WidthRequest="30"              
                       BackgroundColor="Transparent"
-                      HorizontalOptions="EndAndExpand"
+                      HorizontalOptions="End"
                       BorderColor="Transparent"
                       BorderWidth="0"
                       Clicked="AddButtonTapped" 
                       CommandParameter="{Binding .}"/>     
-                            
+                           <!-- //                      IsVisible="{Binding AddButtonVisibility}"  -->            
+
               <Button Image="{Binding StateIcon}"
                       Margin="0,0,8,0"              
                       BackgroundColor="Transparent"
                       HorizontalOptions="End"
                       HeightRequest="30" 
-                      WidthRequest="30"                
+                      WidthRequest="30"   
+                      IsVisible="{Binding ExpandButtonVisibility}"                
                       BorderColor="Transparent"
                       BorderWidth="0"
                       Clicked="HeaderTapped" 

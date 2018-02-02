@@ -35,15 +35,40 @@ namespace NWG.View
         private void UpdateListContent()
         {
             _expandedGroups = new ObservableCollection<FoodGroup>();
-            foreach (FoodGroup group in _allGroups)
+
+        for (int i = 0; i < _allGroups.Count;i++ )
             {
+                FoodGroup group = _allGroups[i];
+
+                for (int j = 0; j < group.Count; j++)
+                {
+                    Food food = group[j];
+
+                    switch (j)
+                    {
+                        
+                        case 0:
+                            _allGroups[i].StatusCount1StatusIcon = food.IsReviewed ? "Green.png" : "Red.png";
+                                break;
+                        case 1:
+                            _allGroups[i].StatusCount2StatusIcon = food.IsReviewed ? "Green.png" : "Red.png";
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                FoodGroup oldGroup = _allGroups[i];
+
                 //Create new FoodGroups so we do not alter original list
-                FoodGroup newGroup = new FoodGroup(group.Title, group.Expanded);
+                FoodGroup newGroup = new FoodGroup(oldGroup.Title, oldGroup.Expanded);
                 //Add the count of food items for Lits Header Titles to use
-                newGroup.FoodCount = group.Count;
+                newGroup.FoodCount = oldGroup.Count;
+                newGroup.StatusCount1StatusIcon = oldGroup.StatusCount1StatusIcon;
+                newGroup.StatusCount2StatusIcon = oldGroup.StatusCount2StatusIcon;
                 if (group.Expanded)
                 {
-                    foreach (Food food in group)
+                    foreach (Food food in oldGroup)
                     {
                         newGroup.Add(food);
                     }

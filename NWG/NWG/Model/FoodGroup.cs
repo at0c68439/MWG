@@ -26,8 +26,59 @@ namespace NWG.Model
                     _expanded = value;
                     OnPropertyChanged("Expanded");
                     OnPropertyChanged("StateIcon");
+                    OnPropertyChanged("AddButtonVisibility");
+                    OnPropertyChanged("ExpandButtonVisibility");
+                    OnPropertyChanged("StatusCount1IconVisibility");
+                    OnPropertyChanged("StatusCount2IconVisibility");
+
                 }
             }
+        }
+
+        public bool AddButtonVisibility
+        {
+            get { return FoodCount != 2; }
+
+        }
+
+        public bool ExpandButtonVisibility
+        {
+            get { return FoodCount >0 ; }
+
+        }
+
+        public bool StatusCount1IconVisibility
+        {
+            get { return FoodCount >0; }
+
+        }
+
+        public bool StatusCount2IconVisibility
+        {
+            get { return FoodCount > 1; }
+
+        }
+
+        private string _statusCount1StatusIcon;
+        public string StatusCount1StatusIcon
+        {
+            get { return _statusCount1StatusIcon; }
+            set {
+                    _statusCount1StatusIcon = value;
+            }
+        }
+
+        private string _statusCount2StatusIcon;
+        public string StatusCount2StatusIcon
+        {
+            get { return _statusCount2StatusIcon; }
+
+            set
+            {
+               
+                    _statusCount2StatusIcon = value;
+            }
+
         }
 
         public string StateIcon
@@ -49,12 +100,12 @@ namespace NWG.Model
         {
             ObservableCollection<FoodGroup> Groups = new ObservableCollection<FoodGroup>{
                 new FoodGroup("Pipeline 1"){
-                    new Food { Name = "Exacavation 1" },
+                    new Food { Name = "Exacavation 1", IsReviewed= false },
                     new Food { Name = "Exacavation 2" }
                 },
                 new FoodGroup("Pipeline 2"){
                     new Food { Name = "Exacavation 1"},
-                    new Food { Name = "Exacavation 2"}
+                    new Food { Name = "Exacavation 2", IsReviewed = false }
                 }
             };
             All = Groups;
