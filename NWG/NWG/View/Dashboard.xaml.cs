@@ -29,7 +29,7 @@ namespace NWG.View
 
         private void AddButtonTapped(object sender, EventArgs args)
         {
-            Navigation.PushAsync(new Login());
+            Navigation.PushAsync(new ExcavationInfoPage());
         }
 
         private void UpdateListContent()
