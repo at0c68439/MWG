@@ -10,6 +10,10 @@ namespace NWG
         public ExcavationInfoPage()
         {
             InitializeComponent();
+        }      
+        private void OnLocationTapped(object sender, EventArgs e)
+        {
+            
         }
     }
 }
