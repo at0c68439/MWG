@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="NWG.View.GenericListSelectorPage">
+	 <Grid x:Name="MainGrid" RowSpacing="5" Padding="0,10,0,0">
+
+    <Grid.RowDefinitions>
+
+      <RowDefinition Height ="Auto"/>
+
+      <RowDefinition Height ="*"/>
+
+    </Grid.RowDefinitions>
+
+ 
+
+    <Grid Grid.Row="0" ColumnSpacing="25">
+
+ 
+
+      <Grid.ColumnDefinitions>
+
+        <ColumnDefinition Width="*"/>
+
+      </Grid.ColumnDefinitions>
+
+ 
+
+    </Grid>
+
+    <ListView Grid.Row="0" x:Name="ItemListView" StyleId="GenericSelectorListView" ItemTapped="OnListItemTapped">
+
+      <ListView.ItemTemplate>
+
+        <DataTemplate>
+
+          <ViewCell>
+
+            <ViewCell.View>
+
+              <StackLayout StyleId="GenericSelectorListViewCell" Padding="10,0,5,0">
+
+                <Label Text="{Binding SelectableString}" StyleId="GenericListViewCellText"
+
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+
+                </Label>
+
+              </StackLayout>
+
+            </ViewCell.View>
+
+          </ViewCell>
+
+        </DataTemplate>
+
+      </ListView.ItemTemplate>
+
+    </ListView>
+
+  </Grid>
+</ContentPage>

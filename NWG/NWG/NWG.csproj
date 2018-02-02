@@ -37,6 +37,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExcavationInfoPage.xaml">
     </EmbeddedResource>
+    <EmbeddedResource Include="View\GenericListSelectorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -64,6 +68,11 @@
     <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="Model\FoodGroup.cs" />
     <Compile Include="Model\Food.cs" />
+    <Compile Include="Helpers\EventArgs.cs" />
+    <Compile Include="View\GenericListSelectorPage.xaml.cs">
+      <DependentUpon>GenericListSelectorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\MetaDataForDropDown.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLite-net">
