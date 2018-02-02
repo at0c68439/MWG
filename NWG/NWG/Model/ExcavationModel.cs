@@ -7,7 +7,7 @@
 
 namespace NWG.Model
 {
-    public class Food
+    public class ExcavationModel
     {
         public string Name { get; set; }
         public bool IsReviewed { get; set; } = true;

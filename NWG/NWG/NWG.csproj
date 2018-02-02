@@ -65,8 +65,8 @@
     <Compile Include="View\MyNavigationPage.cs" />
     <Compile Include="Interfaces\IFileHelper.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
-    <Compile Include="Model\FoodGroup.cs" />
-    <Compile Include="Model\Food.cs" />
+    <Compile Include="Model\ExcavationGroupModel.cs" />
+    <Compile Include="Model\ExcavationModel.cs" />
     <Compile Include="Helpers\EventArgs.cs" />
     <Compile Include="View\GenericListSelectorPage.xaml.cs">
       <DependentUpon>GenericListSelectorPage.xaml</DependentUpon>

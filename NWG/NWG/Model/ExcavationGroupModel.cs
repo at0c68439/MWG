@@ -2,7 +2,7 @@
 using System.ComponentModel;
 namespace NWG.Model
 {
-    public class FoodGroup : ObservableCollection<Food>, INotifyPropertyChanged
+    public class ExcavationGroupModel : ObservableCollection<ExcavationModel>, INotifyPropertyChanged
     {
 
         private bool _expanded;
@@ -88,24 +88,24 @@ namespace NWG.Model
 
         public int FoodCount { get; set; }
 
-        public FoodGroup(string title, bool expanded = true)
+        public ExcavationGroupModel(string title, bool expanded = true)
         {
             Title = title;
             Expanded = expanded;
         }
 
-        public static ObservableCollection<FoodGroup> All { private set; get; }
+        public static ObservableCollection<ExcavationGroupModel> All { private set; get; }
 
-        static FoodGroup()
+        static ExcavationGroupModel()
         {
-            ObservableCollection<FoodGroup> Groups = new ObservableCollection<FoodGroup>{
-                new FoodGroup("Pipeline 1"){
-                    new Food { Name = "Exacavation 1", IsReviewed= false },
-                    new Food { Name = "Exacavation 2" }
+            ObservableCollection<ExcavationGroupModel> Groups = new ObservableCollection<ExcavationGroupModel>{
+                new ExcavationGroupModel("Pipeline 1"){
+                    new ExcavationModel { Name = "Exacavation 1", IsReviewed= false },
+                    new ExcavationModel { Name = "Exacavation 2" }
                 },
-                new FoodGroup("Pipeline 2"){
-                    new Food { Name = "Exacavation 1"},
-                    new Food { Name = "Exacavation 2", IsReviewed = false }
+                new ExcavationGroupModel("Pipeline 2"){
+                    new ExcavationModel { Name = "Exacavation 1"},
+                    new ExcavationModel { Name = "Exacavation 2", IsReviewed = false }
                 }
             };
             All = Groups;
