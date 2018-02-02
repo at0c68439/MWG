@@ -21,23 +21,54 @@ namespace NWG.Helpers
 
 		#region Setting Constants
 
-		private const string SettingsKey = "settings_key";
-		private static readonly string SettingsDefault = string.Empty;
+        private const string UserNameKey = "user_name_key";
+        private static readonly string UserNameDefault = string.Empty;
+
+        private const string PasswordKey = "password_key";
+        private static readonly string PasswordDefault = string.Empty;
+
+        private const string RoleKey = "role_key";
+        private static readonly string RoleDefault = string.Empty;
 
 		#endregion
 
 
-		public static string GeneralSettings
+        public static string UserName
 		{
 			get
 			{
-				return AppSettings.GetValueOrDefault(SettingsKey, SettingsDefault);
+                return AppSettings.GetValueOrDefault(UserNameKey, UserNameDefault);
 			}
 			set
 			{
-				AppSettings.AddOrUpdateValue(SettingsKey, value);
+                AppSettings.AddOrUpdateValue(UserNameKey, value);
 			}
 		}
+
+        public static string Password
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(PasswordKey, PasswordDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(PasswordKey, value);
+            }
+        }
+
+        public static string Role
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(RoleKey, RoleDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(RoleKey, value);
+            }
+        }
+
 
 	}
 }

@@ -73,6 +73,8 @@
     </Compile>
     <Compile Include="Helpers\MetaDataForDropDown.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Model\UserAccount.cs" />
+    <Compile Include="Helpers\UserManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLite-net">

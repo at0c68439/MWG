@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using NWG.Helpers;
 using NWG.Model;
 using Xamarin.Forms;
 
@@ -21,6 +22,7 @@ namespace NWG.View
 
         private void HeaderTapped(object sender, EventArgs args)
         {
+
             int selectedIndex = _expandedGroups.IndexOf(
                 ((ExcavationGroupModel)((Button)sender).CommandParameter));
             _allGroups[selectedIndex].Expanded = !_allGroups[selectedIndex].Expanded;
