@@ -11,7 +11,7 @@
     SeparatorVisibility="None"
     SeparatorColor="Red"
     HasUnevenRows="true"
-    BackgroundColor="#F7F7F7"
+    BackgroundColor="#00000000"
     IsGroupingEnabled="true">
       <ListView.ItemTemplate>
         <DataTemplate>
@@ -20,7 +20,7 @@
                             Margin="15,0,15,0">
            <StackLayout Orientation="Horizontal"
                            Spacing="0,0,0,0"
-                            Padding="20,0,0,0"    
+                            Padding="20,10,0,10"    
                             BackgroundColor="#FFFFFF"
                             VerticalOptions="CenterAndExpand"    
                             HorizontalOptions="FillAndExpand">
@@ -31,14 +31,12 @@
                      HorizontalOptions="Start"
                      VerticalOptions="Center"/>
                             
-               <Image x:Name="ExcavationCount" 
+              <Image x:Name="ExcavationStatusIcon" 
                      VerticalOptions="Center"
-                     Source="expanded_blue.png"/>
-                            
-              <Image x:Name="ArrowIcon" 
-                     HorizontalOptions="EndAndExpand"
-                     VerticalOptions="Center"
-                     Source="expanded_blue.png"/>
+                     Margin="5,0,0,0"               
+                     HeightRequest="10" 
+                     WidthRequest="10"              
+                     Source="Green.png"/>  
 
             </StackLayout>
             </StackLayout>            
@@ -51,9 +49,9 @@
           <ViewCell Height="70" >
            <StackLayout  Spacing="0,0,0,0"  
                              Margin="15,15,15,0"
-                            VerticalOptions="StartAndExpand">              
+                            VerticalOptions="EndAndExpand">              
             <StackLayout Orientation="Horizontal" 
-                            Padding="20,0,0,0" 
+                            Padding="20,10,0,10" 
                             BackgroundColor="#FFFFFF"
                             VerticalOptions="StartAndExpand" 
                             HorizontalOptions="FillAndExpand">
@@ -63,12 +61,21 @@
                      Font="Bold"             
                      HorizontalOptions="Start"
                      VerticalOptions="Center"/>
-               <Image x:Name="ExcavationCount" 
+               <Image x:Name="ExcavationCount1" 
                      VerticalOptions="Center"
-                     Source="expanded_blue.png"/>
-                            
+                     HeightRequest="10" 
+                     WidthRequest="10"                 
+                     Source="Red.png"/>
+              <Image x:Name="ExcavationCount2" 
+                     VerticalOptions="Center"
+                     HeightRequest="10" 
+                     WidthRequest="10"               
+                     Source="Green.png"/>           
               <Button x:Name = "AddButton"
-                      Image="{Binding StateIcon}"
+                      Image="Group1.png"
+                      Margin="0,0,8,0" 
+                      HeightRequest="30" 
+                      WidthRequest="30"              
                       BackgroundColor="Transparent"
                       HorizontalOptions="EndAndExpand"
                       BorderColor="Transparent"
@@ -77,8 +84,11 @@
                       CommandParameter="{Binding .}"/>     
                             
               <Button Image="{Binding StateIcon}"
+                      Margin="0,0,8,0"              
                       BackgroundColor="Transparent"
                       HorizontalOptions="End"
+                      HeightRequest="30" 
+                      WidthRequest="30"                
                       BorderColor="Transparent"
                       BorderWidth="0"
                       Clicked="HeaderTapped" 

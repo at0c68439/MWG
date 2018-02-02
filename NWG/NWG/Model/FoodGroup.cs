@@ -32,7 +32,7 @@ namespace NWG.Model
 
         public string StateIcon
         {
-            get { return Expanded ? "expanded_blue.png" : "collapsed_blue.png"; }
+            get { return Expanded ? "Expand.png" : "Collapse.png"; }
         }
 
         public int FoodCount { get; set; }

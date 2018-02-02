@@ -10,7 +10,7 @@ namespace NWG
             InitializeComponent();
 
             MainPage = new NavigationPage(new Login());
-            ((NavigationPage)MainPage).BarBackgroundColor = Color.Blue;
+            ((NavigationPage)MainPage).BarBackgroundColor = Color.FromHex("#0C60A6");
             ((NavigationPage)MainPage).BarTextColor = Color.White;
 
         }

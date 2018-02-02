@@ -154,8 +154,9 @@
     <BundleResource Include="Resources\logo.png" />
     <BundleResource Include="Resources\pwd.png" />
     <BundleResource Include="Resources\username.png" />
-    <BundleResource Include="Resources\collapsed_blue.png" />
-    <BundleResource Include="Resources\expanded_blue.png" />
+    <BundleResource Include="Resources\Green.png" />
+    <BundleResource Include="Resources\Group1.png" />
+    <BundleResource Include="Resources\Red.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\NWG_Spalsh_bg.png" />
