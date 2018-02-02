@@ -58,6 +58,8 @@
     <Compile Include="Model\EventGroupModel.cs" />
     <Compile Include="Interfaces\IFileHelper.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
+    <Compile Include="Model\FoodGroup.cs" />
+    <Compile Include="Model\Food.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

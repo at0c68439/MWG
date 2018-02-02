@@ -2,54 +2,100 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="NWG.View.Dashboard"
-    Title="Dashboard">
-	<ContentPage.Content >
-                <ListView x:Name ="eventListView" 
-                  ItemsSource="{Binding EventGroupProperty}"
-                  IsGroupingEnabled="true"  
-                  GroupDisplayBinding="{Binding MonthName}"
-                  HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout BackgroundColor="White">
-                            <StackLayout  BackgroundColor="#D3D3D3">
-                            <Label Text="{Binding EventDate}"
-                                   FontSize="18"
-                                   TextColor="#A9A9A9"
-                                   BackgroundColor="#D3D3D3"
-                                   Margin="10,10,0,10"/>
-                            </StackLayout>
-                            <StackLayout x:Name="EventDetailLayout" 
-                                         Margin="10,10,10,10"
-                                         BackgroundColor="White">
-                            <Label Text="{Binding AboutEvent}"
-                                   FontAttributes="Bold"
-                                   TextColor="Black"
-                                   FontSize="18"/>
-                            <Label  x:Name="descriptionLable"
-                                    Text="{Binding EventTopic}"
-                                   TextColor="Black"
-                                   FontSize="18"/>
-                            </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.GroupHeaderTemplate >
-                <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10,0,0,0"  BackgroundColor="Maroon">
-                                <Label Text="{Binding Key}"
-                                        Margin="0,0,0,0"
-                                       FontSize="22"
-                                       TextColor="White"/>
-                            </StackLayout>
-                        </ViewCell>
-                    
-                </DataTemplate>
-            </ListView.GroupHeaderTemplate>
-        </ListView>
+    Title="Dashboard"
+    BackgroundColor="#F7F7F7">
+	<ContentPage.Content  >
+        
+<ListView  x:Name="GroupedView"
+    GroupDisplayBinding="{Binding Title}"
+    SeparatorVisibility="None"
+    SeparatorColor="Red"
+    HasUnevenRows="true"
+    BackgroundColor="#F7F7F7"
+    IsGroupingEnabled="true">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell  >
+          <StackLayout  Spacing="0,0,0,0"  
+                            Margin="15,0,15,0">
+           <StackLayout Orientation="Horizontal"
+                           Spacing="0,0,0,0"
+                            Padding="20,0,0,0"    
+                            BackgroundColor="#FFFFFF"
+                            VerticalOptions="CenterAndExpand"    
+                            HorizontalOptions="FillAndExpand">
+
+              <Label Text="{Binding Name}"
+                     TextColor="#6C6C6C"
+                     FontSize="15"
+                     HorizontalOptions="Start"
+                     VerticalOptions="Center"/>
+                            
+               <Image x:Name="ExcavationCount" 
+                     VerticalOptions="Center"
+                     Source="expanded_blue.png"/>
+                            
+              <Image x:Name="ArrowIcon" 
+                     HorizontalOptions="EndAndExpand"
+                     VerticalOptions="Center"
+                     Source="expanded_blue.png"/>
+
+            </StackLayout>
+            </StackLayout>            
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+            
+      <ListView.GroupHeaderTemplate  >
+        <DataTemplate>
+          <ViewCell Height="70" >
+           <StackLayout  Spacing="0,0,0,0"  
+                             Margin="15,15,15,0"
+                            VerticalOptions="StartAndExpand">              
+            <StackLayout Orientation="Horizontal" 
+                            Padding="20,0,0,0" 
+                            BackgroundColor="#FFFFFF"
+                            VerticalOptions="StartAndExpand" 
+                            HorizontalOptions="FillAndExpand">
+              <Label Text="{Binding Title}" 
+                     TextColor="#676767"
+                     FontSize="15"
+                     Font="Bold"             
+                     HorizontalOptions="Start"
+                     VerticalOptions="Center"/>
+               <Image x:Name="ExcavationCount" 
+                     VerticalOptions="Center"
+                     Source="expanded_blue.png"/>
+                            
+              <Button x:Name = "AddButton"
+                      Image="{Binding StateIcon}"
+                      BackgroundColor="Transparent"
+                      HorizontalOptions="EndAndExpand"
+                      BorderColor="Transparent"
+                      BorderWidth="0"
+                      Clicked="AddButtonTapped" 
+                      CommandParameter="{Binding .}"/>     
+                            
+              <Button Image="{Binding StateIcon}"
+                      BackgroundColor="Transparent"
+                      HorizontalOptions="End"
+                      BorderColor="Transparent"
+                      BorderWidth="0"
+                      Clicked="HeaderTapped" 
+                      CommandParameter="{Binding .}"/>
+
+                            
+            </StackLayout>
+         <Label x:Name ="ListSeparator"
+                     BackgroundColor="#BFBFBF"
+                     HeightRequest="1"
+                     HorizontalOptions="FillAndExpand"/>   
+           </StackLayout>
+         </ViewCell>
+    </DataTemplate>
+      </ListView.GroupHeaderTemplate>
+    </ListView>
+    
 
 	</ContentPage.Content>
 </ContentPage>
