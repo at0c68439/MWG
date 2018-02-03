@@ -39,7 +39,7 @@ namespace NWG.Model
 
         public bool AddButtonVisibility
         {
-            get { return FoodCount != 2 && IsDMO; }
+            get { return FoodCount <= 2 && IsDMO; } // TODo
 
         }
 
