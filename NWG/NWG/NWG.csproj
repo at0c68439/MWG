@@ -73,6 +73,9 @@
     </Compile>
     <Compile Include="Helpers\MetaDataForDropDown.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Model\NewActivityModel.cs" />
+    <Compile Include="ViewModel\NewActivityViewModel.cs" />
+    <Compile Include="Model\BaseModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLite-net">

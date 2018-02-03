@@ -163,36 +163,54 @@
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="FillAndExpand"
                             Margin="0,0,0,0">
-                            <Label
-                                x:Name="Completelabel"
-                                HorizontalOptions="StartAndExpand"
-                                VerticalOptions="CenterAndExpand"
-                                Text="Complete"
-                                TextColor="#9F9F9F"/>
-                            <Label
-                                x:Name="TemproraryLabel"
-                                HorizontalOptions="FillAndExpand"
-                                VerticalOptions="CenterAndExpand"
+
+                            <Label  x:Name="Completelabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Complete"
+                            TextColor="{Binding CompleteColor}">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCompleteTapped"/>
+                        </Label.GestureRecognizers>
+                        </Label>
+
+                            <Label  x:Name="TemproraryLabel"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
                                 HorizontalTextAlignment="Center"
-                                Text="Temprorary Backfill"
-                                TextColor="Black"/>
+                            Text="Temprorary Backfill"
+                            TextColor="{Binding TemporaryLabelColor}">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTemporaryLabelTapped"/>
+                        </Label.GestureRecognizers>
+                        </Label>
+
                         </StackLayout>
                         <StackLayout Orientation="Horizontal"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="FillAndExpand">
-                            <Label
-                                x:Name="Awaitinglabel"
-                                HorizontalOptions="StartAndExpand"
-                                VerticalOptions="CenterAndExpand"
-                                Text="Awaiting Backfill"
-                                TextColor="#9F9F9F"/>
-                            <Label
-                                x:Name="BackfilledLabel"
-                                HorizontalOptions="FillAndExpand"
-                                VerticalOptions="CenterAndExpand"
-                                HorizontalTextAlignment="Center"
-                                Text="Backfilled"
-                                TextColor="#9F9F9F"/>
+                            
+                            <Label  x:Name="Awaitinglabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Awaiting Backfill"
+                            TextColor="{Binding AwaitinglabelColor}">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAwaitinglabelTapped"/>
+                        </Label.GestureRecognizers>
+                        </Label>
+
+                            <Label  x:Name="BackfilledLabel"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="Backfilled"
+                            TextColor="{Binding BackfilledLabelColor}">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackfilledLabelTapped"/>
+                        </Label.GestureRecognizers>
+                        </Label>
+                            
                         </StackLayout>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             

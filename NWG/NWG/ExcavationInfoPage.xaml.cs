@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using NWG.Helpers;
 using NWG.View;
+using NWG.ViewModel;
 using Xamarin.Forms;
 
 namespace NWG
 {
     public partial class ExcavationInfoPage : ContentPage
     {
+        NewActivityViewModel newActivityVM;
         public ExcavationInfoPage()
         {
             InitializeComponent();
             LengthEntry.Keyboard = Keyboard.Numeric;
             WidthEntry.Keyboard = Keyboard.Numeric;
+            DepthEntry.Keyboard = Keyboard.Numeric;
+             newActivityVM = new NewActivityViewModel();
+
+            BindingContext = newActivityVM;
         }      
         private void OnLocationTapped(object sender, EventArgs e)
         {
@@ -90,22 +96,33 @@ namespace NWG
             } 
         }
 
-        private void SelectGenericListValue(List<string> genericList)
+        private void OnCompleteTapped(object sender, EventArgs e)
         {
-            if (genericList != null)
-            {
-                GenericListSelectorPage objCarryOutActivityListFilter = new GenericListSelectorPage(genericList);
-
-                objCarryOutActivityListFilter.pickerHandler += (pickersender, pickerargs) =>
-                {
-                    ColourSelect.Text = pickerargs.pickerValue;
-                };
-                Navigation.PushAsync(objCarryOutActivityListFilter);
-            }
-            else
-            {
-
-            }
-        }
+            newActivityVM.CompleteColor = Color.Green;
+            newActivityVM.TemporaryLabelColor = Color.Blue;
+            newActivityVM.AwaitinglabelColor = Color.Blue;
+            newActivityVM.BackfilledLabelColor = Color.Blue;
+        }   
+        private void OnTemporaryLabelTapped(object sender, EventArgs e)
+        {
+            newActivityVM.CompleteColor = Color.Blue;
+            newActivityVM.TemporaryLabelColor = Color.Green;
+            newActivityVM.AwaitinglabelColor = Color.Blue;
+            newActivityVM.BackfilledLabelColor = Color.Blue;
+        }   
+        private void OnAwaitinglabelTapped(object sender, EventArgs e)
+        {
+            newActivityVM.CompleteColor = Color.Blue;
+            newActivityVM.TemporaryLabelColor = Color.Blue;
+            newActivityVM.AwaitinglabelColor = Color.Green;
+            newActivityVM.BackfilledLabelColor = Color.Blue;
+        }   
+        private void OnBackfilledLabelTapped(object sender, EventArgs e)
+        {
+            newActivityVM.CompleteColor = Color.Blue;
+            newActivityVM.TemporaryLabelColor = Color.Blue;
+            newActivityVM.AwaitinglabelColor = Color.Blue;
+            newActivityVM.BackfilledLabelColor = Color.Green;
+        }   
     }
 }
