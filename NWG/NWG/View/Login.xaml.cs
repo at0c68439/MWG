@@ -1,5 +1,5 @@
 ﻿using System;
-
+using NWG.Helpers;
 using Xamarin.Forms;
 
 namespace NWG.View
@@ -17,9 +17,19 @@ namespace NWG.View
         protected void btn_loginclicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Dashboard());
-            if ((username.Text == "dmouser1" && password.Text == "dmouser@123") || (username.Text == "nwgc" && password.Text == "nwg@123"))
+
+            var accountList = new UserManager().getAllUser();
+            var account = accountList.Find((it) => it.UserName.Equals(username.Text.Trim().ToString()) && it.Password.Equals(password.Text.Trim().ToString()));
+
+            if (account != null)
             {
+                Settings.UserName = account.UserName;
+                Settings.Password = account.Password;
+                Settings.Role = account.Role;
+            }
+            else {
                 
+                DisplayAlert("Authentication Failed", "Please Enter Correct Password","OK");
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using NWG.Helpers;
 using NWG.Model;
 using Xamarin.Forms;
 
@@ -21,6 +22,7 @@ namespace NWG.View
 
         private void HeaderTapped(object sender, EventArgs args)
         {
+
             int selectedIndex = _expandedGroups.IndexOf(
                 ((ExcavationGroupModel)((Button)sender).CommandParameter));
             _allGroups[selectedIndex].Expanded = !_allGroups[selectedIndex].Expanded;
@@ -60,12 +62,14 @@ namespace NWG.View
                 }
                 ExcavationGroupModel oldGroup = _allGroups[i];
 
+                oldGroup.IsDMO = Settings.Role.Equals(Constants.DMO);
                 //Create new FoodGroups so we do not alter original list
                 ExcavationGroupModel newGroup = new ExcavationGroupModel(oldGroup.Title, oldGroup.Expanded);
                 //Add the count of food items for Lits Header Titles to use
                 newGroup.FoodCount = oldGroup.Count;
                 newGroup.StatusCount1StatusIcon = oldGroup.StatusCount1StatusIcon;
                 newGroup.StatusCount2StatusIcon = oldGroup.StatusCount2StatusIcon;
+                newGroup.IsDMO = oldGroup.IsDMO;
                 if (group.Expanded)
                 {
                     foreach (ExcavationModel food in oldGroup)

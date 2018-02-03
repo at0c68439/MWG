@@ -7,6 +7,8 @@ namespace NWG.Model
 
         private bool _expanded;
 
+        public bool IsDMO { get; set; } 
+
         public string Title { get; set; }
 
         public string TitleWithItemCount
@@ -37,7 +39,7 @@ namespace NWG.Model
 
         public bool AddButtonVisibility
         {
-            get { return FoodCount != 2; }
+            get { return FoodCount <= 2 && IsDMO; } // TODo
 
         }
 
