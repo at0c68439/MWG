@@ -20,7 +20,7 @@ namespace NWG
              newActivityVM = new NewActivityViewModel();
 
             DatabaseHelper dbHelper = new DatabaseHelper();
-            var storedActivity = dbHelper.GetFilteredCustomers();
+            //var storedActivity = dbHelper.GetFilteredCustomers();
 
             BindingContext = newActivityVM;
         }      
