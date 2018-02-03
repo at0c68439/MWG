@@ -436,7 +436,7 @@
                     TextColor="#57C091"
                     BackgroundColor="White"
                     BorderColor="#57C091"
-                    WidthRequest="150" Clicked="OnSubmitClicked"/>
+                    WidthRequest="150" />
                 <Button Text="Submit"
                     x:Name="SubmitButton"
                     HorizontalOptions="Center"
@@ -446,7 +446,7 @@
                     BorderColor="White"
                     BorderWidth="1"
                     BorderRadius="0"
-                    WidthRequest="150"/>
+                    WidthRequest="150" Clicked="OnSubmitClicked"/>
             </StackLayout>
       </StackLayout>
 	</ContentPage.Content>

@@ -19,7 +19,9 @@ namespace NWG
             DepthEntry.Keyboard = Keyboard.Numeric;
              newActivityVM = new NewActivityViewModel();
 
-            DatabaseHelper dbHelper = new DatabaseHelper();
+            var vList = App.DAUtil.GetAllEmployees();          
+
+            //DatabaseHelper dbHelper = new DatabaseHelper();
             //var storedActivity = dbHelper.GetFilteredCustomers();
 
             BindingContext = newActivityVM;
@@ -103,7 +105,7 @@ namespace NWG
         private void OnSubmitClicked (object sender, EventArgs e)
         {
             NewActivityModel newActivityModel = new NewActivityModel();
-            newActivityModel.Id = 1;
+
             newActivityModel.Location = LocationEntry.Text;
             newActivityModel.Colour = ColourSelect.Text;
             newActivityModel.Length = LengthEntry.Text;
@@ -119,8 +121,12 @@ namespace NWG
             newActivityModel.CaptureImage = "";
             newActivityModel.GeoLocation = "Lat-12, Long-12";
 
-            DatabaseHelper dataBaseHelper = new DatabaseHelper();
-            dataBaseHelper.AddNewActivity((newActivityModel));
+
+            App.DAUtil.SaveNewActivity(newActivityModel);
+
+            //DatabaseHelper dataBaseHelper = new DatabaseHelper(newActivityModel);
+            //dataBaseHelper.AddNewActivity((newActivityModel));
+
         }
 
         private void OnCompleteTapped(object sender, EventArgs e)

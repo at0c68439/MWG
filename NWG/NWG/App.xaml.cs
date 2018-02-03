@@ -1,10 +1,15 @@
-﻿using NWG.View;
+﻿using NWG.Interfaces;
+using NWG.Model;
+using NWG.View;
 using Xamarin.Forms;
+using static NWG.Helpers.SQLiteEx;
 
 namespace NWG
 {
     public partial class App : Application
     {
+        static DataAccess dbUtils;
+
         public App()
         {
             InitializeComponent();
@@ -13,6 +18,18 @@ namespace NWG
             ((NavigationPage)MainPage).BarBackgroundColor = Color.FromHex("#0C60A6");
             ((NavigationPage)MainPage).BarTextColor = Color.White;
 
+        }
+
+        public static DataAccess DAUtil
+        {
+            get
+            {
+                if (dbUtils == null)
+                {
+                    dbUtils = new DataAccess();
+                }
+                return dbUtils;
+            }
         }
 
         protected override void OnStart()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using SQLite;
+using SQLite.Net.Attributes;
 
 namespace NWG.Model
 {
@@ -8,8 +9,7 @@ namespace NWG.Model
     [Table("NewActivity")]
     public class NewActivityModel : INotifyPropertyChanged
      {
-        private int _id;
-        [PrimaryKey, AutoIncrement]
+        private int _id = 1;       
         public int Id
         {
             get
