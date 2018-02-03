@@ -79,6 +79,8 @@
     <Compile Include="Model\UserAccount.cs" />
     <Compile Include="Helpers\UserManager.cs" />
     <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Interfaces\ISQLite.cs" />
+    <Compile Include="Interfaces\IDatabaseConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SQLite-net">

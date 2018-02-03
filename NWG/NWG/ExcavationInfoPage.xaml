@@ -291,8 +291,7 @@
                             Text="Is site cleared"
                             TextColor="#185FA5"/>
                         <Switch x:Name="SiteButton"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="FillAndExpand"/>
+                            HorizontalOptions="End"></Switch>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -313,15 +312,13 @@
                             Text="Is spoil removed"
                             TextColor="#185FA5"/>
                         <Switch x:Name="SpoilButton"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="FillAndExpand"/>
+                            HorizontalOptions="End"/>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
                         Opacity="0.5"
                         HorizontalOptions="FillAndExpand"
                         Orientation="Vertical"/>
-
 
                     <StackLayout x:Name="CommentsLayout"
                         HorizontalOptions="FillAndExpand"
@@ -439,7 +436,7 @@
                     TextColor="#57C091"
                     BackgroundColor="White"
                     BorderColor="#57C091"
-                    WidthRequest="150"/>
+                    WidthRequest="150" Clicked="OnSubmitClicked"/>
                 <Button Text="Submit"
                     x:Name="SubmitButton"
                     HorizontalOptions="Center"

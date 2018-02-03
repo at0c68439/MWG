@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NWG.Helpers;
+using NWG.Model;
 using NWG.View;
 using NWG.ViewModel;
 using Xamarin.Forms;
@@ -17,6 +18,9 @@ namespace NWG
             WidthEntry.Keyboard = Keyboard.Numeric;
             DepthEntry.Keyboard = Keyboard.Numeric;
              newActivityVM = new NewActivityViewModel();
+
+            DatabaseHelper dbHelper = new DatabaseHelper();
+            var storedActivity = dbHelper.GetFilteredCustomers();
 
             BindingContext = newActivityVM;
         }      
@@ -94,6 +98,29 @@ namespace NWG
             {
 
             } 
+        }
+
+        private void OnSubmitClicked (object sender, EventArgs e)
+        {
+            NewActivityModel newActivityModel = new NewActivityModel();
+            newActivityModel.Id = 1;
+            newActivityModel.Location = LocationEntry.Text;
+            newActivityModel.Colour = ColourSelect.Text;
+            newActivityModel.Length = LengthEntry.Text;
+            newActivityModel.Width = WidthEntry.Text;
+            newActivityModel.Depth = DepthEntry.Text;
+            newActivityModel.Status = "Complete";
+            newActivityModel.Surface = SurfaceEntry.Text;
+            newActivityModel.PublicOrPrivate = PublicEntry.Text;
+            newActivityModel.IsSiteCleared = true;
+            newActivityModel.IsSpoilRemoved = false;
+            newActivityModel.Comments = CommentsEntry.Text;
+            newActivityModel.MaterialDescription = MaterialSelect.Text;
+            newActivityModel.CaptureImage = "";
+            newActivityModel.GeoLocation = "Lat-12, Long-12";
+
+            DatabaseHelper dataBaseHelper = new DatabaseHelper();
+            dataBaseHelper.AddNewActivity((newActivityModel));
         }
 
         private void OnCompleteTapped(object sender, EventArgs e)
