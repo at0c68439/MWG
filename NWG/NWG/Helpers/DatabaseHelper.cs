@@ -63,10 +63,7 @@ namespace NWG.Helpers
             }
         }
 
-        public Task<List<NewActivityModel>> GetItemsAsync()
-        {
-            
-        }
+
 
     }
 }
