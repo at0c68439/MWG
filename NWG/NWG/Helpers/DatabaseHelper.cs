@@ -62,7 +62,11 @@ namespace NWG.Helpers
                 return query.AsEnumerable();
             }
         }
-
+        public List<NewActivityModel> GetAllEmployees()
+        {
+            database = DependencyService.Get<IDatabaseConnection>().DbConnection();
+            return database.Query<NewActivityModel>("Select * From [NewActivityModel]");
+        }
 
 
     }
