@@ -31,12 +31,8 @@ namespace NWG
 
             if (_selectedNewActivityModel != null)
             {
-<<<<<<< HEAD
-                newActivity = App.DAUtil.GetAllEmployees().First();          
-                LoadIntialDataForNwgc(selectedNewActivityModel);    
-=======
+
                 LoadIntialDataForNwgc(_selectedNewActivityModel);    
->>>>>>> master
             }
             _groupId = groupId;
             BindingContext = newActivityVM;
