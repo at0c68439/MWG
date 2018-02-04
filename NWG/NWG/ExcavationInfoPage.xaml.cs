@@ -29,13 +29,13 @@ namespace NWG
             if (role == "nwgc")
             {
                 newActivity = App.DAUtil.GetAllEmployees().First();          
-                LoadIntialDataForNwgc(newActivity);    
+                LoadIntialDataForNwgc(selectedNewActivityModel);    
             }
             _groupId = groupId;
             BindingContext = newActivityVM;
         }    
 
-        private void LoadIntialDataForNwgc(NewActivityModel newActivity)
+        private void LoadIntialDataForNwgc(NewActivityModel newActivitymodel)
         {
             SubmitButton.Text = "Review";
             LocationEntry.Text = newActivity.Location;
@@ -43,11 +43,14 @@ namespace NWG
             LengthEntry.Text = newActivity.Length;
             WidthEntry.Text = newActivity.Width;
             DepthEntry.Text = newActivity.Depth;
+            StatusSelect.Text = newActivity.Status;
             SurfaceSelect.Text = newActivity.Surface;
             PublicSelect.Text = newActivity.PublicOrPrivate;
             SiteButton.IsToggled = newActivity.IsSiteCleared;
             SpoilButton.IsToggled = newActivity.IsSpoilRemoved;
+            comments.Text = newActivity.Comments;
             MaterialSelect.Text = newActivity.MaterialDescription;
+            GeoLocation.Text = newActivity.GeoLocation;
         }
 
         private void OnLocationTapped(object sender, EventArgs e)
@@ -163,8 +166,8 @@ namespace NWG
             if (IsLocationAvailable())
             {
                 var position = await CrossGeolocator.Current.GetPositionAsync();
-                GeoLocationLabel.IsVisible = false;
-                GeoLocation.Text = $"Lat:{Math.Round(position.Latitude, 2)},Long:{Math.Round(position.Longitude, 2)}";
+                //GeoLocationLabel.IsVisible = false;
+                GeoLocationLabel.Text = $"Lat:{Math.Round(position.Latitude, 2)},Long:{Math.Round(position.Longitude, 2)}";
             }
         }
 

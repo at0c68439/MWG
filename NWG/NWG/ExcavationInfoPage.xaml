@@ -396,12 +396,13 @@
                             VerticalOptions="CenterAndExpand"
                             Text="Capture Image"
                             TextColor="#185FA5"/>
-                        <Label
-                            x:Name="ImageEntry"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center"
-                            TextColor="#185FA5"/>
+                         <Button Text="View Image"  Clicked="ViewImage_Clicked" VerticalOptions="Center" HorizontalOptions="Center" />
+
+                        <Image x:Name="CameraImage" Source="Camera" WidthRequest="20"   HeightRequest="20"  HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                            <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCameraTapped"/>
+                        </Image.GestureRecognizers>
+                            </Image>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -422,18 +423,18 @@
                             TextColor="#185FA5"/>
                          <Label 
                             x:Name="GeoLocation"
-                            HorizontalOptions="StartAndExpand"
+                            HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
                             TextColor="#185FA5"/>
-                        <Button Text="Current Location"  Clicked="CurrentLocation_Clicked" VerticalOptions="Center" HorizontalOptions="End" />
-                       <!-- <Image
+                        
+                           <Image
                             x:Name="GeoLocationEntry"
                             Source="Geolocation"
                             HorizontalOptions="End"
                             WidthRequest="20"
                             HeightRequest="20"
                             HorizontalTextAlignment="Center"
-                            TextColor="#185FA5"/>-->
+                            TextColor="#185FA5" Clicked="CurrentLocation_Clicked"/>
                     </StackLayout>
                     
                     <StackLayout HeightRequest="1"             
