@@ -28,52 +28,68 @@ namespace NWG.ViewModel
 
         public ObservableCollection<ExcavationGroupModel> LoadAllExcavationGroups()
         {
-            var groups = new ObservableCollection<ExcavationGroupModel>();
-            groups = Groups;
+            var groups = new ObservableCollection<ExcavationGroupModel>{
+                    new ExcavationGroupModel("Pipeline 1", "1"){
+                    new NewActivityModel { IsNotEmptyRow = false}
+                    },
+                    new ExcavationGroupModel("Pipeline 2", "2"){
+                    new NewActivityModel{ IsNotEmptyRow = false }
+
+                    }
+                };
+         
 
             var vList = App.DAUtil.GetAllEmployees();
             var firstGroupExcavationList = vList.Where((it) => it.GroupId.Equals("1")).Take(2).ToList();
             var secondGroupExcavationList = vList.Where((it) => it.GroupId.Equals("2")).Take(2).ToList();
-            if (firstGroupExcavationList.Count() > 0)
+
+            try
             {
-                groups[0].RemoveAt(0);
-                for (int index = 0; index < firstGroupExcavationList.Count(); index++)
+                if (firstGroupExcavationList != null && firstGroupExcavationList.Count() > 0)
                 {
-                    NewActivityModel activitityModel = firstGroupExcavationList[index];
-
-                    if (index == 0)
+                    groups[0].Clear();
+                    for (int index = 0; index < firstGroupExcavationList.Count(); index++)
                     {
-                        activitityModel.Name = "Excavation 1";
-                    }
-                    else
-                    {
-                        activitityModel.Name = "Excavation 2";
-                    }
+                        NewActivityModel activitityModel = firstGroupExcavationList[index];
 
-                    groups[0].Add(activitityModel);
+                        if (index == 0)
+                        {
+                            activitityModel.Name = "Excavation 1";
+                        }
+                        else
+                        {
+                            activitityModel.Name = "Excavation 2";
+                        }
+
+                        groups[0].Add(activitityModel);
+                    }
                 }
-            }
 
-            if (secondGroupExcavationList.Count() > 0)
+                if (secondGroupExcavationList != null && secondGroupExcavationList.Count() > 0)
+                {
+                    groups[1].Clear();
+                    for (int index = 0; index < secondGroupExcavationList.Count(); index++)
+                    {
+                        NewActivityModel activitityModel = secondGroupExcavationList[index];
+                        if (index == 0)
+                        {
+                            activitityModel.Name = "Excavation 1";
+                        }
+                        else
+                        {
+                            activitityModel.Name = "Excavation 2";
+                        }
+
+                        groups[1].Add(activitityModel);
+                    }
+                }
+            }catch(Exception e)
             {
-                groups[1].RemoveAt(0);
-                for (int index = 0; index < secondGroupExcavationList.Count(); index++)
-                {
-                    NewActivityModel activitityModel = secondGroupExcavationList[index];
-                    if (index == 0)
-                    {
-                        activitityModel.Name = "Excavation 1";
-                    }
-                    else
-                    {
-                        activitityModel.Name = "Excavation 2";
-                    }
-
-                    groups[1].Add(activitityModel);
-                }
+                var data = e.InnerException;
             }
 
             return groups;
         }
     }
 }
+//"Index was out of range. Must be non-negative and less than the size of the collection.\nParameter name: index"

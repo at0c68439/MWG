@@ -28,14 +28,12 @@ namespace NWG.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            thisViewModel.LoadAllExcavationGroups();
             _allGroups = thisViewModel.LoadAllExcavationGroups();
             UpdateListContent();
         }
         private void Grouped_ListView_Item_Clicked(object sender, ItemTappedEventArgs args)
         {
             var selectedNewActivityModel = args.Item as NewActivityModel;
-            var group = args.Group as NewActivityModel;
             Navigation.PushAsync(new ExcavationInfoPage(selectedNewActivityModel.GroupId, selectedNewActivityModel));
         }
 
