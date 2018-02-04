@@ -21,18 +21,18 @@ namespace NWG.View
 
             if (string.IsNullOrEmpty(username.Text) && string.IsNullOrEmpty(password.Text))
             {
-                DisplayAlert("Required", "Please Enter Username And Password", "OK");
+                DisplayAlert("Required", "Please enter username and password", "OK");
             }
             else if (string.IsNullOrEmpty(username.Text))
             {
 
-                DisplayAlert("Required", "Please Enter Username", "OK");
+                DisplayAlert("Required", "Please enter username", "OK");
 
             }
             else if (string.IsNullOrEmpty(password.Text))
             {
 
-                DisplayAlert("Required", "Please Enter Password", "OK");
+                DisplayAlert("Required", "Please enter password", "OK");
             }
             else
             {
@@ -49,7 +49,7 @@ namespace NWG.View
                 else
                 {
 
-                    DisplayAlert("Authentication Failed", "Please Enter Correct Password", "OK");
+                    DisplayAlert("Authentication Failed", "Please enter correct password", "OK");
                 }
             }
            

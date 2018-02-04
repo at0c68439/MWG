@@ -17,6 +17,7 @@ namespace NWG
         string role = Settings.Role.ToString();
         private string _groupId;
         NewActivityModel _selectedNewActivityModel;
+        bool isValidate = true;
         public ExcavationInfoPage(string groupId = "1", NewActivityModel selectedNewActivityModel = null)
 
         {
@@ -188,7 +189,11 @@ namespace NWG
         {
             NewActivityModel newActivityModel = new NewActivityModel();
 
-            SubmitValidation();
+
+            if (role == "dmo")
+            {
+                SubmitValidation();
+            }
 
             newActivityModel.GroupId = _groupId;
             newActivityModel.Location = LocationEntry.Text;
@@ -209,55 +214,67 @@ namespace NWG
 
             newActivityModel.IsReviewed = role == "nwgc" ? true : false;
 
-            if (role == "dmo")
+            if (isValidate)
             {
-                App.DAUtil.SaveNewActivity(newActivityModel);
-            }
-            else
-            {
-                newActivityModel.Id = _selectedNewActivityModel.Id;
-                App.DAUtil.EditEmployee(newActivityModel);          
+                if (_selectedNewActivityModel != null)
+                {
+                    newActivityModel.Id = _selectedNewActivityModel.Id;
+                        App.DAUtil.EditEmployee(newActivityModel);
+                }
+                else
+                {
+                    App.DAUtil.SaveNewActivity(newActivityModel);
+                }
+                Navigation.PopAsync();
             }
 
-            Navigation.PopAsync();
         }
 
         private void SubmitValidation()
         {
             if(LocationEntry.Text == "Choose Location")
             {
+                isValidate = false;
                 DisplayAlert("Validation Failed", "Please select location", "OK");
             }
             else if (ColourSelect.Text == "Choose Colour")
             {
+                isValidate = false;
                 DisplayAlert("Validation Failed", "Please select Colour", "OK");
             }
             else if (string.IsNullOrEmpty(LengthEntry.Text))
             {
+                isValidate = false;
                 DisplayAlert("Validation Failed", "Please Enter Length", "OK");
             }
             else if (string.IsNullOrEmpty(WidthEntry.Text))
             {
+                isValidate = false;
                 DisplayAlert("Validation Failed", "Please Enter Width", "OK");
             }
             else if (string.IsNullOrEmpty(DepthEntry.Text))
             {
+                isValidate = false;
                 DisplayAlert("Validation Failed", "Please Enter Depth", "OK");
             }  
             else if (LocationEntry.Text == "Choose Status")
             {
+                isValidate = false;
                 DisplayAlert("Validation Failed", "Please select Status", "OK");
             }
             else if (SurfaceSelect.Text == "Choose Surface")
             {
+                isValidate = false;
                 DisplayAlert("Validation Failed", "Please select Surface", "OK");
             }
             else if (SurfaceSelect.Text == "Choose Public/Private")
             {
+                isValidate = false;
                 DisplayAlert("Validation Failed", "Please select Public/Private", "OK");
             }
             else if (MaterialSelect.Text == "Choose Material")
             {
+                isValidate = false;
                 DisplayAlert("Validation Failed", "Please select Material Description", "OK");
             }           
         }
