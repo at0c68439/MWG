@@ -2,21 +2,18 @@
 using System.ComponentModel;
 namespace NWG.Model
 {
-    public class ExcavationGroupModel : ObservableCollection<ExcavationModel>, INotifyPropertyChanged
+    public class ExcavationGroupModel : ObservableCollection<NewActivityModel>, INotifyPropertyChanged
     {
 
         private bool _expanded;
 
-        public bool IsDMO { get; set; } 
+        public bool IsDMO { get; set; }
+
+        public bool IsNotEmptyRowPresent { get; set; } = true;
 
         public string Title { get; set; }
 
-        public string TitleWithItemCount
-        {
-            get { return string.Format("{0} ({1})", Title, FoodCount); }
-        }
-
-        public string ShortName { get; set; }
+        public string GroupID { get; set; }
 
         public bool Expanded
         {
@@ -39,19 +36,19 @@ namespace NWG.Model
 
         public bool AddButtonVisibility
         {
-            get { return FoodCount <= 2 && IsDMO; } // TODo
+            get { return FoodCount < 2 && IsDMO ; } // TODo
 
         }
 
         public bool ExpandButtonVisibility
         {
-            get { return FoodCount >0 ; }
+            get { return FoodCount >0 && IsNotEmptyRowPresent; }
 
         }
 
         public bool StatusCount1IconVisibility
         {
-            get { return FoodCount >0; }
+            get { return FoodCount >0 && IsNotEmptyRowPresent; }
 
         }
 
@@ -61,7 +58,7 @@ namespace NWG.Model
 
         }
 
-        private string _statusCount1StatusIcon;
+        private string _statusCount1StatusIcon="";
         public string StatusCount1StatusIcon
         {
             get { return _statusCount1StatusIcon; }
@@ -70,7 +67,7 @@ namespace NWG.Model
             }
         }
 
-        private string _statusCount2StatusIcon;
+        private string _statusCount2StatusIcon="";
         public string StatusCount2StatusIcon
         {
             get { return _statusCount2StatusIcon; }
@@ -90,28 +87,29 @@ namespace NWG.Model
 
         public int FoodCount { get; set; }
 
-        public ExcavationGroupModel(string title, bool expanded = true)
+        public ExcavationGroupModel(string title, string groupID, bool expanded = true)
         {
             Title = title;
+            GroupID = groupID;
             Expanded = expanded;
         }
 
-        public static ObservableCollection<ExcavationGroupModel> All { private set; get; }
+        public static ObservableCollection<ExcavationGroupModel> All {  set; get; }
 
-        static ExcavationGroupModel()
-        {
-            ObservableCollection<ExcavationGroupModel> Groups = new ObservableCollection<ExcavationGroupModel>{
-                new ExcavationGroupModel("Pipeline 1"){
-                    new ExcavationModel { Name = "Exacavation 1", IsReviewed= false },
-                    new ExcavationModel { Name = "Exacavation 2" }
-                },
-                new ExcavationGroupModel("Pipeline 2"){
-                    new ExcavationModel { Name = "Exacavation 1"},
-                    new ExcavationModel { Name = "Exacavation 2", IsReviewed = false }
-                }
-            };
-            All = Groups;
-        }
+        //static ExcavationGroupModel()
+        //{
+        //    ObservableCollection<ExcavationGroupModel> Groups = new ObservableCollection<ExcavationGroupModel>{
+        //        new ExcavationGroupModel("Pipeline 1", "1"){
+        //            new NewActivityModel { Name = "Exacavation 1", IsReviewed= false },
+        //            new NewActivityModel { Name = "Exacavation 2" }
+        //        },
+        //        new ExcavationGroupModel("Pipeline 2", "2"){
+        //            new NewActivityModel { Name = "Exacavation 1"},
+        //            new NewActivityModel { Name = "Exacavation 2", IsReviewed = false }
+        //        }
+        //    };
+        //    All = Groups;
+        //}
 
 
         public event PropertyChangedEventHandler PropertyChanged;

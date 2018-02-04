@@ -9,6 +9,8 @@ namespace NWG.Model
     [Table("NewActivity")]
     public class NewActivityModel : INotifyPropertyChanged
      {
+        public string Name { get; set; }
+
         private int _id = 1;       
         public int Id
         {
@@ -20,6 +22,20 @@ namespace NWG.Model
             {
                 this._id = value;
                 OnPropertyChanged(nameof(Id));
+            }
+        }
+
+        private string _groupId;
+        public String GroupId
+        {
+            get
+            {
+                return _groupId;
+            }
+            set
+            {
+                this._groupId = value;
+                OnPropertyChanged(nameof(GroupId));
             }
         }
 
@@ -219,6 +235,14 @@ namespace NWG.Model
             }
         }
 
+        public bool IsNotEmptyRow { get; set; } = true;
+
+        public bool IsReviewed { get; set; } = false;
+
+        public string StatusIcon
+        {
+            get { return IsReviewed ? "Green.png" : "Red.png"; }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)

@@ -11,18 +11,16 @@ namespace NWG
     public partial class ExcavationInfoPage : ContentPage
     {
         NewActivityViewModel newActivityVM;
-        public ExcavationInfoPage()
+        private string _groupId;
+        public ExcavationInfoPage(string groupId = "1", NewActivityModel selectedNewActivityModel = null)
         {
             InitializeComponent();
             LengthEntry.Keyboard = Keyboard.Numeric;
             WidthEntry.Keyboard = Keyboard.Numeric;
             DepthEntry.Keyboard = Keyboard.Numeric;
-             newActivityVM = new NewActivityViewModel();
-
+            newActivityVM = new NewActivityViewModel();
+            _groupId = groupId;
             var vList = App.DAUtil.GetAllEmployees();          
-
-            //DatabaseHelper dbHelper = new DatabaseHelper();
-            //var storedActivity = dbHelper.GetFilteredCustomers();
 
             BindingContext = newActivityVM;
         }      
@@ -105,7 +103,7 @@ namespace NWG
         private void OnSubmitClicked (object sender, EventArgs e)
         {
             NewActivityModel newActivityModel = new NewActivityModel();
-
+            newActivityModel.GroupId = _groupId;
             newActivityModel.Location = LocationEntry.Text;
             newActivityModel.Colour = ColourSelect.Text;
             newActivityModel.Length = LengthEntry.Text;
@@ -121,12 +119,8 @@ namespace NWG
             newActivityModel.CaptureImage = "";
             newActivityModel.GeoLocation = "Lat-12, Long-12";
 
-
             App.DAUtil.SaveNewActivity(newActivityModel);
-
-            //DatabaseHelper dataBaseHelper = new DatabaseHelper(newActivityModel);
-            //dataBaseHelper.AddNewActivity((newActivityModel));
-
+            Navigation.PopAsync();
         }
 
         private void OnCompleteTapped(object sender, EventArgs e)
