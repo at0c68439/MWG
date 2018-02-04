@@ -13,6 +13,22 @@ namespace NWG.Model
         [SQLite.Net.Attributes.PrimaryKey, SQLite.Net.Attributes.AutoIncrement]
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
+        private string _groupId;
+        public String GroupId
+        {
+            get
+            {
+                return _groupId;
+            }
+            set
+            {
+                this._groupId = value;
+                OnPropertyChanged(nameof(GroupId));
+            }
+        }
+
         private string _location;
         public string Location
         {
@@ -223,7 +239,7 @@ namespace NWG.Model
             }
         }
 
-        private bool _isReviewed;
+        private bool _isReviewed = false;
         public bool IsReviewed
         {
             get
@@ -237,6 +253,13 @@ namespace NWG.Model
             }
         }
 
+        public bool IsNotEmptyRow { get; set; } = true;
+
+
+        public string StatusIcon
+        {
+            get { return IsReviewed ? "Green.png" : "Red.png"; }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)
