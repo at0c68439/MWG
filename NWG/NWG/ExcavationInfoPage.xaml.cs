@@ -15,7 +15,8 @@ namespace NWG
     {
         NewActivityViewModel newActivityVM;
         string role = Settings.Role.ToString();
-        public ExcavationInfoPage()
+        private string _groupId;
+        public ExcavationInfoPage(string groupId = "1", NewActivityModel selectedNewActivityModel = null)
         {
             InitializeComponent();
             LengthEntry.Keyboard = Keyboard.Numeric;
@@ -23,12 +24,12 @@ namespace NWG
             DepthEntry.Keyboard = Keyboard.Numeric;
             newActivityVM = new NewActivityViewModel();
 
-            if(role == "nwgc")
+            if (role == "nwgc")
             {
-                var vList = App.DAUtil.GetAllEmployees().First();          
-                LoadIntialDataForNwgc(vList);    
+                var vList = App.DAUtil.GetAllEmployees().First();
+                LoadIntialDataForNwgc(vList);
             }
-
+            _groupId = groupId;
             BindingContext = newActivityVM;
         }    
 
@@ -178,6 +179,7 @@ namespace NWG
 
             SubmitValidation();
 
+            newActivityModel.GroupId = _groupId;
             newActivityModel.Location = LocationEntry.Text;
             newActivityModel.Colour = ColourSelect.Text;
             newActivityModel.Length = LengthEntry.Text;
@@ -197,9 +199,15 @@ namespace NWG
             newActivityModel.IsReviewed = role == "nwgc" ? true : false;
 
             if (role == "dmo")
+            {
                 App.DAUtil.SaveNewActivity(newActivityModel);
-                   else
-                   App.DAUtil.EditEmployee(newActivityModel);          
+            }
+            else
+            {
+                App.DAUtil.EditEmployee(newActivityModel);
+            }
+            Navigation.PopAsync();
+
         }
 
         private void SubmitValidation()

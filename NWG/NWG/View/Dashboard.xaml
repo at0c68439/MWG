@@ -17,7 +17,8 @@
         <DataTemplate>
           <ViewCell  >
           <StackLayout  Spacing="0,0,0,0"  
-                            Margin="15,0,15,0">
+                            Margin="15,0,15,0"
+                            IsVisible="{Binding IsNotEmptyRow}">
            <StackLayout Orientation="Horizontal"
                            Spacing="0,0,0,0"
                             Padding="20,10,0,10"  
@@ -80,7 +81,7 @@
                       HeightRequest="30" 
                       WidthRequest="30"              
                       BackgroundColor="Transparent"
-                      HorizontalOptions="End"
+                      HorizontalOptions="EndAndExpand"
                       BorderColor="Transparent"
                       BorderWidth="0"
                       IsVisible="{Binding AddButtonVisibility}"              

@@ -64,7 +64,6 @@
     </Compile>
     <Compile Include="View\MyNavigationPage.cs" />
     <Compile Include="Model\ExcavationGroupModel.cs" />
-    <Compile Include="Model\ExcavationModel.cs" />
     <Compile Include="Helpers\EventArgs.cs" />
     <Compile Include="View\GenericListSelectorPage.xaml.cs">
       <DependentUpon>GenericListSelectorPage.xaml</DependentUpon>
@@ -73,12 +72,13 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Model\NewActivityModel.cs" />
     <Compile Include="ViewModel\NewActivityViewModel.cs" />
-    <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\UserAccount.cs" />
     <Compile Include="Helpers\UserManager.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Interfaces\ISQLite.cs" />
     <Compile Include="Helpers\SQLiteEx.cs" />
+    <Compile Include="ViewModel\DashboardViewModel.cs" />
+    <Compile Include="ViewModel\BaseModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
