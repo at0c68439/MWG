@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="NWG.ExcavationInfoPage">
+    x:Class="NWG.ExcavationInfoPage"
+    Title="New Activity">
     <ContentPage.Content>
         <StackLayout x:Name="RootLayout"
             HorizontalOptions="FillAndExpand"
@@ -90,8 +91,7 @@
                             x:Name="LengthEntry"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="End"
-                            TextColor="#185FA5" WidthRequest="130"/>
+                            TextColor="#185FA5" WidthRequest="150"/>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -115,7 +115,6 @@
                             x:Name="WidthEntry"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="End"
                             TextColor="#185FA5" WidthRequest="150"/>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
@@ -148,19 +147,20 @@
                         HorizontalOptions="FillAndExpand"
                         Orientation="Vertical"/>
 
-                    <StackLayout 
+
+                          <StackLayout x:Name="StatusLayout"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Start"
                         Padding="5,5,5,5"
-                        Orientation="Horizontal">
-                        <Label
-                            x:Name="StatusLabel"
-                            HorizontalOptions="StartAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            Text="Location" 
+                        Orientation="Vertical">
+                    
+                            <Label x:Name="StatusLabel"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Text="Status"
                             TextColor="#185FA5"/>
 
-                        <Label  x:Name="StatusSelect"
+                             <Label  x:Name="StatusSelect"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
                             HorizontalTextAlignment="Center" Text="Choose Status"
@@ -169,7 +169,7 @@
                         <TapGestureRecognizer Tapped="OnStatusTapped"/>
                         </Label.GestureRecognizers>
                         </Label>
-                    </StackLayout>
+                        </StackLayout>
 
                        <!-- <StackLayout x:Name="StatusContent1" Orientation="Horizontal"
                             HorizontalOptions="FillAndExpand"
@@ -234,18 +234,16 @@
                         HorizontalOptions="FillAndExpand"
                         Orientation="Vertical"/>
 
-                    <StackLayout 
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="Start"
-                        Padding="5,5,5,5"
+                     <StackLayout 
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="FillAndExpand"
                         Orientation="Horizontal">
                         <Label
                             x:Name="SurfaceLabel"
                             HorizontalOptions="StartAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            Text="Surface" 
+                            Text="Surface"
                             TextColor="#185FA5"/>
-
                         <Label  x:Name="SurfaceSelect"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
@@ -255,7 +253,6 @@
                         <TapGestureRecognizer Tapped="OnSurfaceSelectTapped"/>
                         </Label.GestureRecognizers>
                         </Label>
-
                     </StackLayout>
 
                     

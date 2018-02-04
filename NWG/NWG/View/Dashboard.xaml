@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="NWG.View.Dashboard"
-    Title="Dashboard"
+    Title="Pipeline"
     BackgroundColor="#F7F7F7">
 	<ContentPage.Content  >
         
@@ -74,14 +74,18 @@
                      WidthRequest="10"
                      IsVisible="{Binding StatusCount2IconVisibility}"               
                      HorizontalOptions="StartAndExpand"
-                     Source="{Binding StatusCount2StatusIcon}"/>           
+                     Source="{Binding StatusCount2StatusIcon}"/> 
+
+            <StackLayout Orientation="Horizontal" 
+                            BackgroundColor="#FFFFFF"
+                            HorizontalOptions="EndAndExpand">           
               <Button x:Name = "AddButton"
                       Image="Group1.png"
                       Margin="0,0,8,0" 
                       HeightRequest="30" 
                       WidthRequest="30"              
                       BackgroundColor="Transparent"
-                      HorizontalOptions="EndAndExpand"
+                      HorizontalOptions="End"
                       BorderColor="Transparent"
                       BorderWidth="0"
                       IsVisible="{Binding AddButtonVisibility}"              
@@ -99,7 +103,7 @@
                       BorderWidth="0"
                       Clicked="HeaderTapped" 
                       CommandParameter="{Binding .}"/>
-
+               </StackLayout>
                             
             </StackLayout>
          <Label x:Name ="ListSeparator"
