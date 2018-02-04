@@ -191,17 +191,31 @@ namespace NWG.Model
             }
         }
 
-        private string _captureImage;
-        public string CaptureImage
+        private string _captureImage1;
+        public string CaptureImage1
         {
             get
             {
-                return _captureImage;
+                return _captureImage1;
             }
             set
             {
-                _captureImage = value;
-                OnPropertyChanged(nameof(CaptureImage));
+                _captureImage1 = value;
+                OnPropertyChanged(nameof(CaptureImage1));
+            }
+        }
+
+        private string _captureImage2;
+        public string CaptureImage2
+        {
+            get
+            {
+                return _captureImage2;
+            }
+            set
+            {
+                _captureImage2 = value;
+                OnPropertyChanged(nameof(CaptureImage2));
             }
         }
 
@@ -216,6 +230,20 @@ namespace NWG.Model
             {
                 _geoLocation = value;
                 OnPropertyChanged(nameof(GeoLocation));
+            }
+        }
+
+        private bool _isReviewed;
+        public bool IsReviewed
+        {
+            get
+            {
+                return _isReviewed;
+            }
+            set
+            {
+                _isReviewed = value;
+                OnPropertyChanged(nameof(IsReviewed));
             }
         }
 

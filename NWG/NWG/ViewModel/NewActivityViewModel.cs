@@ -50,14 +50,35 @@ namespace NWG.ViewModel
                 OnPropertyChanged(new PropertyChangedEventArgs("BackfilledLabelColor"));
             }
         }
-               
+
+        private bool _isSiteClearedToggeled;
+        public bool IsSiteClearedToggeled
+        {
+            get { return _isSiteClearedToggeled; }
+            set
+            {
+                _isSiteClearedToggeled = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("IsSiteClearedToggeled"));
+            }
+        }
+
+        private bool _isSpoilRemovedToggeled;
+        public bool IsSpoilRemovedToggeled
+        {
+            get { return _isSpoilRemovedToggeled; }
+            set
+            {
+                _isSiteClearedToggeled = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("IsSpoilRemovedToggeled"));
+            }
+        }
 
         public NewActivityViewModel()
         {         
-            CompleteColor = Color.Blue;
-            TemporaryLabelColor = Color.Blue;
-            AwaitinglabelColor = Color.Blue;
-            BackfilledLabelColor = Color.Blue;
+            CompleteColor = Color.FromHex("#9F9F9F");
+            TemporaryLabelColor = Color.FromHex("#9F9F9F");;
+            AwaitinglabelColor = Color.FromHex("#9F9F9F");;
+            BackfilledLabelColor = Color.FromHex("#9F9F9F");;
         }
     }
 }

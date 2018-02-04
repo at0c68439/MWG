@@ -85,6 +85,26 @@ namespace NWG.Helpers
             return locationList;
         }
 
+        public static List<string> StatusSelect()
+        {
+            List<string> statusList = new List<string>();
+            statusList.Add("Complete");
+            statusList.Add("Temporary Backfill");
+            statusList.Add("Awaiting Backfill");
+            statusList.Add("Backfilled");         
+
+            return statusList;
+        }
+
+        public static List<string> PublicSelect()
+        {
+            List<string> publicList = new List<string>();
+            publicList.Add("Public");
+            publicList.Add("Private");
+
+            return publicList;
+        }
+
     }
 }
 
