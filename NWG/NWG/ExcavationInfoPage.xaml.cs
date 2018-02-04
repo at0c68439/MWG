@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using NWG.Helpers;
 using NWG.Model;
 using NWG.View;
 using NWG.ViewModel;
 using Plugin.Geolocator;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using Xamarin.Forms;
 
 
@@ -18,6 +21,8 @@ namespace NWG
         private string _groupId;
         NewActivityModel _selectedNewActivityModel;
         bool isValidate = true;
+        byte[] image1,image2;
+        int imageCount;
         public ExcavationInfoPage(string groupId = "1", NewActivityModel selectedNewActivityModel = null)
 
         {
@@ -38,7 +43,7 @@ namespace NWG
             BindingContext = newActivityVM;
         }    
 
-        private void LoadIntialDataForNwgc(NewActivityModel newActivitymodel)
+        private void LoadIntialDataForNwgc(NewActivityModel newActivity)
         {
             if (role != "nwgc")
             {
@@ -282,6 +287,51 @@ namespace NWG
                 DisplayAlert("Validation Failed", "Please select Material Description", "OK");
             }           
         }
+
+        async void OnCameraTapped(object sender, System.EventArgs e)
+        {
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
+                return;
+            }
+
+            var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+            {
+                Directory = "NWG",
+                SaveToAlbum = false,
+                CompressionQuality = 75,
+                CustomPhotoSize = 50,
+                PhotoSize = PhotoSize.MaxWidthHeight,
+                MaxWidthHeight = 2000,
+                DefaultCamera = CameraDevice.Rear,
+                Name = "p1e1i1.png"
+
+
+            });
+
+            if (file == null)
+                return;
+
+            //await DisplayAlert("File Location", file.Path, "OK");
+
+            //image.Source = ImageSource.FromStream(() =>
+            //{
+                var stream = file.GetStream();
+            using (var memoryStream = new MemoryStream())
+            {
+                stream.CopyTo(memoryStream);
+                if (image1 == null)
+                    image1 = memoryStream.ToArray();
+                else if (image2 == null)
+                    image2 = memoryStream.ToArray();
+                else
+                    await DisplayAlert("Warning", "only two photographs are allowed", "OK");
+            }
+            await DisplayAlert("Success", "Image Saved Successfully" , "OK");
+        }
+
+      
 
         private void OnCompleteTapped(object sender, EventArgs e)
         {
