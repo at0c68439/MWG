@@ -26,12 +26,13 @@ namespace NWG
             DepthEntry.Keyboard = Keyboard.Numeric;
             newActivityVM = new NewActivityViewModel();
 
+            _selectedNewActivityModel = selectedNewActivityModel;
+
             if (_selectedNewActivityModel != null)
             {
                 LoadIntialDataForNwgc(_selectedNewActivityModel);    
             }
             _groupId = groupId;
-            _selectedNewActivityModel = selectedNewActivityModel;
             BindingContext = newActivityVM;
         }    
 
@@ -39,9 +40,12 @@ namespace NWG
         {
             if (role != "nwgc")
             {
-                SubmitButton.Text = "Review";
-            } else {
                 SubmitButton.Text = "Submit";
+
+            } else {
+                
+                SubmitButton.Text = "Review";
+
             }
             LocationEntry.Text = newActivity.Location;
             ColourSelect.Text = newActivity.Colour;
