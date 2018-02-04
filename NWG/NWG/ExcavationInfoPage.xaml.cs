@@ -15,8 +15,8 @@ namespace NWG
     {
         NewActivityViewModel newActivityVM;
         string role = Settings.Role.ToString();
-        NewActivityModel newActivity;
         private string _groupId;
+        NewActivityModel _selectedNewActivityModel;
         public ExcavationInfoPage(string groupId = "1", NewActivityModel selectedNewActivityModel = null)
 
         {
@@ -26,18 +26,23 @@ namespace NWG
             DepthEntry.Keyboard = Keyboard.Numeric;
             newActivityVM = new NewActivityViewModel();
 
-            if (role == "nwgc")
+            if (_selectedNewActivityModel != null)
             {
-                newActivity = App.DAUtil.GetAllEmployees().First();          
-                LoadIntialDataForNwgc(newActivity);    
+                LoadIntialDataForNwgc(_selectedNewActivityModel);    
             }
             _groupId = groupId;
+            _selectedNewActivityModel = selectedNewActivityModel;
             BindingContext = newActivityVM;
         }    
 
         private void LoadIntialDataForNwgc(NewActivityModel newActivity)
         {
-            SubmitButton.Text = "Review";
+            if (role != "nwgc")
+            {
+                SubmitButton.Text = "Review";
+            } else {
+                SubmitButton.Text = "Submit";
+            }
             LocationEntry.Text = newActivity.Location;
             ColourSelect.Text = newActivity.Colour;
             LengthEntry.Text = newActivity.Length;
@@ -204,9 +209,9 @@ namespace NWG
             {
                 App.DAUtil.SaveNewActivity(newActivityModel);
             }
-                   else
+            else
             {
-                newActivityModel.Id = newActivity.Id;
+                newActivityModel.Id = _selectedNewActivityModel.Id;
                 App.DAUtil.EditEmployee(newActivityModel);          
             }
 
