@@ -40,8 +40,8 @@
 	<key>XSLaunchImageAssets</key>
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>    
-        <key>NSLocationWhenInUseUsageDescription</key>
-        <string>This app needs access location when open.</string>    
+	<string>LaunchScreen</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access location when open.</string>
 </dict>
 </plist>

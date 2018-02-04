@@ -15,6 +15,7 @@ namespace NWG
     {
         NewActivityViewModel newActivityVM;
         string role = Settings.Role.ToString();
+        NewActivityModel newActivity;
         public ExcavationInfoPage()
         {
             InitializeComponent();
@@ -25,8 +26,8 @@ namespace NWG
 
             if(role == "nwgc")
             {
-                var vList = App.DAUtil.GetAllEmployees().First();          
-                LoadIntialDataForNwgc(vList);    
+                newActivity = App.DAUtil.GetAllEmployees().First();          
+                LoadIntialDataForNwgc(newActivity);    
             }
 
             BindingContext = newActivityVM;
@@ -199,7 +200,11 @@ namespace NWG
             if (role == "dmo")
                 App.DAUtil.SaveNewActivity(newActivityModel);
                    else
-                   App.DAUtil.EditEmployee(newActivityModel);          
+            {
+                newActivityModel.Id = newActivity.Id;
+                App.DAUtil.EditEmployee(newActivityModel);          
+            }
+                
         }
 
         private void SubmitValidation()

@@ -6,22 +6,12 @@ using SQLite.Net.Attributes;
 namespace NWG.Model
 {
 
-    [Table("NewActivity")]
+    [SQLite.Net.Attributes.Table("NewActivity")]
     public class NewActivityModel : INotifyPropertyChanged
      {
-        private int _id = 1;       
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                this._id = value;
-                OnPropertyChanged(nameof(Id));
-            }
-        }
+            
+        [SQLite.Net.Attributes.PrimaryKey, SQLite.Net.Attributes.AutoIncrement]
+        public int Id { get; set; }
 
         private string _location;
         public string Location
@@ -38,7 +28,7 @@ namespace NWG.Model
         }
 
         private string _colour;
-        [MaxLength(50)]
+        [SQLite.Net.Attributes.MaxLength(50)]
         public string Colour
         {
             get
