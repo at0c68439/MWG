@@ -14,6 +14,15 @@ namespace NWG.View
             NavigationPage.SetBackButtonTitle(this, "");
 
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if(!App.IsLogin) {
+                password.Text = ""; 
+            }
+        }
+
         protected void btn_loginclicked(object sender, EventArgs e)
         {
 
@@ -44,6 +53,7 @@ namespace NWG.View
                     Settings.Password = account.Password;
                     Settings.Role = account.Role;
 
+                    App.IsLogin = true;
                     Navigation.PushAsync(new Dashboard());
                 }
                 else

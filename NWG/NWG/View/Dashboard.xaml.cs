@@ -54,6 +54,12 @@ namespace NWG.View
             Navigation.PushAsync(new ExcavationInfoPage(groupId));
         }
 
+        void Logout_Button_Clicked(object sender, System.EventArgs e)
+        {
+            App.IsLogin = false;
+            Navigation.PopAsync();
+        }
+
         private void UpdateListContent()
         {
             _expandedGroups = new ObservableCollection<ExcavationGroupModel>();

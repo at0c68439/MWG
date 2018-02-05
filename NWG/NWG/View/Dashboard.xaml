@@ -4,6 +4,9 @@
     x:Class="NWG.View.Dashboard"
     Title="Pipeline"
     BackgroundColor="#F7F7F7">
+    <ContentPage.ToolbarItems>
+   <ToolbarItem  Icon="Logout.png" Priority="0" Clicked="Logout_Button_Clicked"  />
+</ContentPage.ToolbarItems>
 	<ContentPage.Content  >
         
 <ListView  x:Name="GroupedView"

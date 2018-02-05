@@ -10,6 +10,8 @@ namespace NWG
     {
         static DataAccess dbUtils;
 
+        public static bool IsLogin { get; set; } = false;
+
         public App()
         {
             InitializeComponent();

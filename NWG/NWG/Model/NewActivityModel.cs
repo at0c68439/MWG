@@ -197,8 +197,8 @@ namespace NWG.Model
             }
         }
 
-        private string _captureImage1;
-        public string CaptureImage1
+        private byte[] _captureImage1;
+        public byte[] CaptureImage1
         {
             get
             {
@@ -211,8 +211,8 @@ namespace NWG.Model
             }
         }
 
-        private string _captureImage2;
-        public string CaptureImage2
+        private byte[] _captureImage2;
+        public byte[] CaptureImage2
         {
             get
             {

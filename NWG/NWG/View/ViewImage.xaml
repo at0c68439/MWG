@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="NWG.View.ViewImage"
+    Title="View Images">
+    <ContentPage.ToolbarItems>
+   <ToolbarItem  Icon="Logout.png" Priority="0" Clicked="Logout_Button_Clicked"  />
+</ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="10,10,10,10">
+            <Label x:Name ="NoImageFoundLbl" Text="No Image Found" IsVisible="false" Margin="5,20,5,5" HorizontalOptions="CenterAndExpand"></Label>
+        <Image x:Name="image1" WidthRequest="400" HeightRequest="250"></Image>
+        <Image x:Name="image2" WidthRequest="400" HeightRequest="250"></Image>
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

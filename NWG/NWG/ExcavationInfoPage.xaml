@@ -3,6 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="NWG.ExcavationInfoPage"
     Title="New Activity">
+    <ContentPage.ToolbarItems>
+     <ToolbarItem  Icon="Logout.png" Priority="0" Clicked="Logout_Button_Clicked"  />
+   </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout x:Name="RootLayout"
             HorizontalOptions="FillAndExpand"
@@ -34,7 +37,7 @@
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
                             HorizontalTextAlignment="Center" Text="Choose Location"
-                            TextColor="#185FA5">
+                            TextColor="Black">
                         <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnLocationTapped"/>
                         </Label.GestureRecognizers>
@@ -63,7 +66,7 @@
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
                             HorizontalTextAlignment="Center" Text="Choose Colour"
-                            TextColor="#185FA5">
+                            TextColor="Black">
                         <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnColourChooseTapped"/>
                         </Label.GestureRecognizers>
@@ -91,7 +94,8 @@
                             x:Name="LengthEntry"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            TextColor="#185FA5" WidthRequest="150"/>
+                            HorizontalTextAlignment="End"
+                            TextColor="Black" WidthRequest="130"/>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -115,7 +119,8 @@
                             x:Name="WidthEntry"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            TextColor="#185FA5" WidthRequest="150"/>
+                            HorizontalTextAlignment="End"
+                            TextColor="Black" WidthRequest="130"/>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -139,7 +144,8 @@
                             x:Name="DepthEntry"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            TextColor="#185FA5" WidthRequest="150"/>
+                            HorizontalTextAlignment="End"
+                            TextColor="Black" WidthRequest="130"/>
                     </StackLayout>
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
@@ -147,29 +153,29 @@
                         HorizontalOptions="FillAndExpand"
                         Orientation="Vertical"/>
 
-
-                          <StackLayout x:Name="StatusLayout"
+                    <StackLayout 
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Start"
                         Padding="5,5,5,5"
-                        Orientation="Vertical">
-                    
-                            <Label x:Name="StatusLabel"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="FillAndExpand"
-                            Text="Status"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="StatusLabel"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Text="Status" 
                             TextColor="#185FA5"/>
 
-                             <Label  x:Name="StatusSelect"
+                        <Label  x:Name="StatusSelect"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
                             HorizontalTextAlignment="Center" Text="Choose Status"
-                            TextColor="#185FA5">
+                            TextColor="Black">
                         <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnStatusTapped"/>
                         </Label.GestureRecognizers>
                         </Label>
-                        </StackLayout>
+
+                    </StackLayout>
 
                        <!-- <StackLayout x:Name="StatusContent1" Orientation="Horizontal"
                             HorizontalOptions="FillAndExpand"
@@ -228,31 +234,35 @@
                         Opacity="0.5"
                         HorizontalOptions="FillAndExpand"
                         Orientation="Vertical"/>>-->
+                   
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
                         Opacity="0.5"
                         HorizontalOptions="FillAndExpand"
                         Orientation="Vertical"/>
 
-                     <StackLayout 
-                        HorizontalOptions="StartAndExpand"
-                        VerticalOptions="FillAndExpand"
+                    <StackLayout 
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Start"
+                        Padding="5,5,5,5"
                         Orientation="Horizontal">
                         <Label
-                            x:Name="SurfaceLabel"
+                            x:Name="SurfaceDispaly"
                             HorizontalOptions="StartAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            Text="Surface"
+                            Text="Surface" 
                             TextColor="#185FA5"/>
+
                         <Label  x:Name="SurfaceSelect"
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
                             HorizontalTextAlignment="Center" Text="Choose Surface"
-                            TextColor="#185FA5">
+                            TextColor="Black">
                         <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnSurfaceSelectTapped"/>
                         </Label.GestureRecognizers>
                         </Label>
+
                     </StackLayout>
 
                     
@@ -276,7 +286,7 @@
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
                             HorizontalTextAlignment="Center" Text="Choose Public/Private"
-                            TextColor="#185FA5">
+                            TextColor="Black">
                         <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnPublicOrPrivateTapped"/>
                         </Label.GestureRecognizers>
@@ -335,23 +345,23 @@
                         VerticalOptions="Start"
                         Padding="5,5,5,5"
                         Orientation="Vertical"
-                        >
-                        <StackLayout Orientation="Horizontal">
+                       >
+                       
                         <Label  
                             x:Name="CommentsLabel"
                             HorizontalOptions="StartAndExpand"
                             VerticalOptions="CenterAndExpand"
                             Text="Comments"
                             TextColor="#185FA5"/>
-                            </StackLayout>
-                        <Editor x:Name="comments" HeightRequest="100" Text="" VerticalOptions="FillAndExpand" />
+                       
+                        <Editor x:Name="comments" HeightRequest="100" Text="" TextColor="Black" VerticalOptions="FillAndExpand" />
                     </StackLayout>
+                    
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
                         Opacity="0.5"
                         HorizontalOptions="FillAndExpand"
                         Orientation="Vertical"/>
-
 
                      <StackLayout x:Name="MaterialLayout"
                         HorizontalOptions="FillAndExpand"
@@ -369,7 +379,7 @@
                             HorizontalOptions="EndAndExpand"
                             VerticalOptions="CenterAndExpand"
                             HorizontalTextAlignment="Center" Text="Choose Material"
-                            TextColor="#185FA5">
+                            TextColor="Black">
                         <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnMaterialSelectTapped"/>
                         </Label.GestureRecognizers>
@@ -392,9 +402,20 @@
                             HorizontalOptions="StartAndExpand"
                             VerticalOptions="CenterAndExpand"
                             Text="Capture Image"
-                            TextColor="#185FA5"/>
+                            TextColor="#185FA5" />
 
-                         <Button Text="View Image"  Clicked="ViewImage_Clicked" VerticalOptions="Center" HorizontalOptions="Center" />
+
+                        <Label 
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            Text="View Image"
+                            TextColor="Black" Margin="5,0,0,0">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ViewImage_Clicked"/>
+                        </Label.GestureRecognizers>
+                        </Label>
+
+                         <!--<Button Text="View Image"   Clicked="ViewImage_Clicked" VerticalOptions="Center" HorizontalOptions="End"  TextColor="#185FA5" Margin="0,0,5,0"/>-->
 
                         <Image x:Name="CameraImage" Source="Camera" WidthRequest="20" HeightRequest="20"  HorizontalOptions="EndAndExpand" VerticalOptions="Center">
                             <Image.GestureRecognizers>
@@ -402,12 +423,7 @@
                         </Image.GestureRecognizers>
                             </Image>
                     </StackLayout>
-                    <StackLayout HeightRequest="1"             
-                        BackgroundColor="Gray"
-                        Opacity="0.5"
-                        HorizontalOptions="FillAndExpand"
-                        Orientation="Vertical"/>
-                    
+                
                     <StackLayout HeightRequest="1"             
                         BackgroundColor="Gray"
                         Opacity="0.5"
@@ -427,18 +443,20 @@
                             TextColor="#185FA5"/>
                          <Label 
                             x:Name="GeoLocation"
-                            HorizontalOptions="StartAndExpand"
+                            HorizontalOptions="End"
                             VerticalOptions="CenterAndExpand"
-                            TextColor="#185FA5"/>
-                        <Button Text="Current Location"  Clicked="CurrentLocation_Clicked" VerticalOptions="Center" HorizontalOptions="End" />
-                       <!-- <Image
+                            TextColor="Black" Margin="0,0,5,0"/>
+                   
+                      <Image
                             x:Name="GeoLocationEntry"
                             Source="Geolocation"
                             HorizontalOptions="End"
                             WidthRequest="20"
-                            HeightRequest="20"
-                            HorizontalTextAlignment="Center"
-                            TextColor="#185FA5"/>-->
+                            HeightRequest="20">
+                             <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="CurrentLocation_Clicked"/>
+                        </Image.GestureRecognizers>
+                            </Image>
                     </StackLayout>
                     
                     <StackLayout HeightRequest="1"             
@@ -460,7 +478,7 @@
                     TextColor="#57C091"
                     BackgroundColor="White"
                     BorderColor="#57C091"
-                    WidthRequest="150" />
+                    WidthRequest="150" Clicked="OnCancelClicked"/>
                 <Button Text="Submit"
                     x:Name="SubmitButton"
                     HorizontalOptions="Center"

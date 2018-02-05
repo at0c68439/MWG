@@ -27,6 +27,8 @@ namespace NWG
 
         {
             InitializeComponent();
+            NavigationPage.SetBackButtonTitle(this, "");
+
             LengthEntry.Keyboard = Keyboard.Numeric;
             WidthEntry.Keyboard = Keyboard.Numeric;
             DepthEntry.Keyboard = Keyboard.Numeric;
@@ -49,10 +51,15 @@ namespace NWG
             {
                 SubmitButton.Text = "Submit";
 
-            } else {
-                
-                SubmitButton.Text = "Review";
 
+            } else {
+                SubmitButton.Text = "Review";
+                LengthEntry.IsEnabled = false;
+                WidthEntry.IsEnabled = false;
+                DepthEntry.IsEnabled = false;
+                SiteButton.IsEnabled = false;
+                SpoilButton.IsEnabled = false;
+                comments.IsEnabled = false;
             }
             LocationEntry.Text = newActivity.Location;
             ColourSelect.Text = newActivity.Colour;
@@ -67,6 +74,8 @@ namespace NWG
             comments.Text = newActivity.Comments;
             MaterialSelect.Text = newActivity.MaterialDescription;
             GeoLocation.Text = newActivity.GeoLocation;
+            image1 = newActivity.CaptureImage1;
+            image2 = newActivity.CaptureImage2;
         }
 
         private void OnLocationTapped(object sender, EventArgs e)
@@ -179,13 +188,26 @@ namespace NWG
 
         async void CurrentLocation_Clicked(object sender, EventArgs e)
         {
-            if (IsLocationAvailable())
+            if(role == "dmo" && IsLocationAvailable())
             {
-                var position = await CrossGeolocator.Current.GetPositionAsync();
-                //GeoLocationLabel.IsVisible = false;
-                GeoLocationLabel.Text = $"Lat:{Math.Round(position.Latitude, 2)},Long:{Math.Round(position.Longitude, 2)}";
+                var position = await CrossGeolocator.Current.GetPositionAsync();             
+                GeoLocation.Text = $"Lat:{Math.Round(position.Latitude, 2)},Long:{Math.Round(position.Longitude, 2)}";
             }
         }
+
+        void ViewImage_Clicked(object sender, EventArgs e)
+        {
+            List<byte[]> imageBytes = new List<byte[]>();
+            imageBytes.Add(image1);
+            imageBytes.Add((image2));
+            Navigation.PushAsync((new ViewImage(imageBytes)));
+        }
+
+        void OnCancelClicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
+
 
         public bool IsLocationAvailable()
         {
@@ -196,6 +218,7 @@ namespace NWG
 
         private void OnSubmitClicked (object sender, EventArgs e)
         {
+            isValidate = true;
             NewActivityModel newActivityModel = new NewActivityModel();
 
 
@@ -217,8 +240,8 @@ namespace NWG
             newActivityModel.IsSpoilRemoved = SpoilButton.IsToggled;
             newActivityModel.Comments = comments.Text;
             newActivityModel.MaterialDescription = MaterialSelect.Text;
-            newActivityModel.CaptureImage1 = "";
-            newActivityModel.CaptureImage2 = "";
+            newActivityModel.CaptureImage1 = image1;
+            newActivityModel.CaptureImage2 = image2;
             newActivityModel.GeoLocation = GeoLocation.Text;
 
             newActivityModel.IsReviewed = role == "nwgc" ? true : false;
@@ -288,6 +311,12 @@ namespace NWG
             }           
         }
 
+        void Logout_Button_Clicked(object sender, System.EventArgs e)
+        {
+            App.IsLogin = false;
+            Navigation.PopToRootAsync();
+        }
+
         async void OnCameraTapped(object sender, System.EventArgs e)
         {
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
@@ -312,26 +341,27 @@ namespace NWG
 
             if (file == null)
                 return;
-
-            //await DisplayAlert("File Location", file.Path, "OK");
-
-            //image.Source = ImageSource.FromStream(() =>
-            //{
-                var stream = file.GetStream();
+           
+            var stream = file.GetStream();
             using (var memoryStream = new MemoryStream())
             {
                 stream.CopyTo(memoryStream);
                 if (image1 == null)
+                {
                     image1 = memoryStream.ToArray();
+                    await DisplayAlert("Success", "Image Saved Successfully", "OK");
+                }
+
                 else if (image2 == null)
+                {
                     image2 = memoryStream.ToArray();
+                    await DisplayAlert("Success", "Image Saved Successfully", "OK");
+                }
+
                 else
                     await DisplayAlert("Warning", "only two photographs are allowed", "OK");
             }
-            await DisplayAlert("Success", "Image Saved Successfully" , "OK");
-        }
-
-      
+        }      
 
         private void OnCompleteTapped(object sender, EventArgs e)
         {
