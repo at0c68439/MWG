@@ -53,7 +53,7 @@ namespace NWG
 
 
             } else {
-                SubmitButton.Text = "Review";
+                SubmitButton.Text = "Complete";
                 LengthEntry.IsEnabled = false;
                 WidthEntry.IsEnabled = false;
                 DepthEntry.IsEnabled = false;

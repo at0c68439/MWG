@@ -14,7 +14,7 @@
         
         <local:MyEntry x:Name = "password" Placeholder="Password" IsPassword="true" TextColor="Gray" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds=".8,.55,.7,.1" />
        
-        <Button AbsoluteLayout.LayoutBounds=".5,.7,.85,.07" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#375b8e" Text="Sign up" TextColor="White" Clicked="btn_loginclicked"/>
+        <Button AbsoluteLayout.LayoutBounds=".5,.7,.85,.07" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#375b8e" Text="Login" TextColor="White" Clicked="btn_loginclicked"/>
 
     </AbsoluteLayout>
 </ContentPage>
