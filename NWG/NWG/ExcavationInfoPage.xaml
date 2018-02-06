@@ -3,9 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="NWG.ExcavationInfoPage"
     Title="New Activity">
-    <ContentPage.ToolbarItems>
-     <ToolbarItem  Icon="Logout.png" Priority="0" Clicked="Logout_Button_Clicked"  />
-   </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout x:Name="RootLayout"
             HorizontalOptions="FillAndExpand"

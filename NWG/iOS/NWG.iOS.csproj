@@ -176,6 +176,7 @@
     <BundleResource Include="Resources\Green.png" />
     <BundleResource Include="Resources\Group1.png" />
     <BundleResource Include="Resources\Red.png" />
+    <BundleResource Include="Resources\arrow_hdpi.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\NWG_Spalsh_bg.png" />
