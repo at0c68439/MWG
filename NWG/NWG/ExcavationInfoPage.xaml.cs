@@ -55,6 +55,7 @@ namespace NWG
             } else {
                 SubmitButton.Text = "Complete";
                 LengthEntry.IsEnabled = false;
+                CaptureImage.IsEnabled = false;
                 WidthEntry.IsEnabled = false;
                 DepthEntry.IsEnabled = false;
                 SiteButton.IsEnabled = false;
@@ -264,12 +265,12 @@ namespace NWG
 
         private void SubmitValidation()
         {
-            if(LocationEntry.Text == "Choose Location")
+            if (string.IsNullOrEmpty(LocationEntry.Text))
             {
                 isValidate = false;
                 DisplayAlert("Validation Failed", "Please select location", "OK");
             }
-            else if (ColourSelect.Text == "Choose Colour")
+            else if (string.IsNullOrEmpty(ColourSelect.Text))
             {
                 isValidate = false;
                 DisplayAlert("Validation Failed", "Please select Colour", "OK");
@@ -294,17 +295,17 @@ namespace NWG
                 isValidate = false;
                 DisplayAlert("Validation Failed", "Please select Status", "OK");
             }
-            else if (SurfaceSelect.Text == "Choose Surface")
+            else if (string.IsNullOrEmpty(SurfaceSelect.Text))
             {
                 isValidate = false;
                 DisplayAlert("Validation Failed", "Please select Surface", "OK");
             }
-            else if (SurfaceSelect.Text == "Choose Public/Private")
+            else if (string.IsNullOrEmpty(PublicSelect.Text))
             {
                 isValidate = false;
                 DisplayAlert("Validation Failed", "Please select Public/Private", "OK");
             }
-            else if (MaterialSelect.Text == "Choose Material")
+            else if (string.IsNullOrEmpty(MaterialSelect.Text))
             {
                 isValidate = false;
                 DisplayAlert("Validation Failed", "Please select Material Description", "OK");
